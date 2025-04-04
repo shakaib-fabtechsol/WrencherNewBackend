@@ -6,7 +6,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\BusinessUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\CommenController;
 Route::controller(AuthController::class)->group(function () {
     Route::get('Login', 'Login')->name('Login');
     Route::post('ProcessLogin', 'ProcessLogin')->name('ProcessLogin');
@@ -19,7 +19,11 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('Terms', 'Terms')->name('Terms');
     Route::get('Logout', 'Logout')->name('Logout');
 });
-
+Route::controller(CommenController::class)->group(function () {
+    Route::get('Profile', 'Profile')->name('Profile');
+    Route::post('UpdateProfile', 'UpdateProfile')->name('UpdateProfile');  
+      
+});
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'Index')->name('Home');
     
