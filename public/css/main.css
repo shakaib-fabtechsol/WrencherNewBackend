@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'tt_chocolates';
+    src: url('../fonts/tt_chocolates_light-webfont.woff2') format('woff2'),
+         url('../fonts/tt_chocolates_light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'tt_chocolates';
+    src: url('../fonts/tt_chocolates_regular-webfont.woff2') format('woff2'),
+         url('../fonts/tt_chocolates_regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'tt_chocolates';
+    src: url('../fonts/tt_chocolates_medium-webfont.woff2') format('woff2'),
+         url('../fonts/tt_chocolates_medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'tt_chocolates';
+    src: url('../fonts/tt_chocolates_demibold-webfont.woff2') format('woff2'),
+         url('../fonts/tt_chocolates_demibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'tt_chocolates';
+    src: url('../fonts/tt_chocolates_bold-webfont.woff2') format('woff2'),
+         url('../fonts/tt_chocolates_bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'tt_chocolates';
+    src: url('../fonts/tt_chocolates_extrabold-webfont.woff2') format('woff2'),
+         url('../fonts/tt_chocolates_extrabold-webfont.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* --sky: #003FDB; */
+    --sky: #1a83f5;
+    --lblue: #B3E3FC;
+}
+
+body {
+    font-family: 'tt_chocolates' !important;
+}
+
+.mycontainer {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.font-md {
+    font-weight: 500;
+}
+
+.font-semi {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+textarea {
+    resize: none;
+}
+
+.ex-small {
+    font-size: 12px;
+}
+
+.object-cover {
+    object-fit: cover;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.focus-none:focus {
+    box-shadow: none;
+    border: solid 1px #cdcdcd;
+    outline: none;
+}
+.font-12 {
+    font-size: 12px;
+}
+.nowrap {
+    text-wrap: nowrap !important;
+}
+
+.bg-sky {
+    background: var(--sky);
+}
+.sky {
+    color: var(--sky) !important;
+}
+.border-sky {
+    border: 1px solid var(--sky);
+}
+.bg-lblue {
+    background: var(--lblue);
+}
+.lblue {
+    color: #009FF4;
+}
+.border-lblue {
+    border: 1px solid #009FF4;
+}
+.bg-lgreen {
+    background: #b6dcb3;
+}
+.bg-grey {
+    background: #d5d5d5;
+}
+.grey {
+    color: #979797;
+}
+.bg-prpl {
+    background: #D4E1FF;
+}
+
+.bluebtn {
+    background-color: var(--sky);
+    padding: 10px 15px;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.cus-img {
+    width: 50px;
+    height: 50px;
+}
+.bg-danger2 {
+    background: #e0a7c2;
+}
+.bg-warning2 {
+    background: #f3e4b7;
+}
+.bg-success2 {
+    background: #a3c298;
+}
+.signature-container {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+}
+canvas {
+    display: block;
+}
+
+.toggle-cell {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.log-logo {
+    max-width: 300px;
+}
+
+.repair-logo img,
+.log-logo {
+    width: 100%;
+    height: 100%;
+}
+
+.img-logo {
+    max-width: 190px;
+}
+
+.sidefont {
+    color: #5d7285;
+}
+
+.logodiv img {
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width:768px) {
+    .main {
+        position: relative;
+    }
+
+    .left {
+        position: absolute;
+        display: none;
+        background-color: #fff !important;
+        z-index: 9999999999;
+    }
+
+    .right {
+        width: 100% !important;
+    }
+
+}
+
+@media screen and (min-width:769px) {
+    .left {
+        display: block !important;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .hding {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width:350px) {
+    .hding {
+        font-size: 16px;
+    }
+
+}
