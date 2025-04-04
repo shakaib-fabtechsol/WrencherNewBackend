@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('role');
             $table->integer('status')->default(0);
             $table->rememberToken();
+            $table->text('token')->nullable();
             $table->timestamps();
         });
 

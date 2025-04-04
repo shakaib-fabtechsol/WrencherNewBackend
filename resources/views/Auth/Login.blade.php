@@ -7,6 +7,11 @@
 </head>
 
 <body>
+    @if (session('success'))
+        <script>
+            swal("Good job!", "{{ session('success') }}", "success");
+        </script>
+    @endif
     <section>
         <div class="loginmain d-flex align-items-center justify-content-center">
             <div class="w-100 d-flex align-items-center justify-content-center">
