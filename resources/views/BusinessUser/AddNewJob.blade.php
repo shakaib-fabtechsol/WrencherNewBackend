@@ -506,7 +506,7 @@
                         aria-label="Close"><i class="fa-solid fs-4 fa-circle-xmark text-danger"></i></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="">
+                    <form method="post" action="{{ route('BusinessUser.StoreCustomer')}}">
                         @csrf
                         <div class="row">
                             <div class="col-lg-7 mx-auto">
@@ -524,33 +524,33 @@
                                     <input type="file" id="file-up" class="d-none">
                                 </div> -->
                                 <div class="mt-3">
-                                    <label for="" class="form-label fw-medium mb-0">Full Name</label>
-                                    <input type="text" name="fullName" value="{{ old('fullName') }}"
-                                        class="modal-input" placeholder="John Doe">
-                                    @error('fullName')
+                                    <label for="name" class="form-label fw-medium mb-0">Full Name</label>
+                                    <input type="text" name="name" id="name" value="{{ old('name') }}"
+                                        class="modal-input" placeholder="Enter Name">
+                                    @error('name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="mt-3">
-                                    <label for="companyName" class="form-label fw-medium mb-0">Company</label>
-                                    <input type="text" name="companyName" value="{{ old('companyName') }}"
+                                    <label for="company" class="form-label fw-medium mb-0">Company</label>
+                                    <input type="text" id="company" name="company" value="{{ old('company') }}"
                                         class="modal-input" placeholder="Enter Company Name">
-                                    @error('companyName')
+                                    @error('company')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="mt-3">
-                                    <label for="" class="form-label fw-medium mb-0">Phone</label>
-                                    <input type="tel" name="mobileNumber" value="{{ old('mobileNumber') }}"
-                                        class="modal-input" placeholder="12345678">
-                                    @error('mobileNumber')
+                                    <label for="phone" class="form-label fw-medium mb-0">Phone</label>
+                                    <input type="tel" id="phone" name="phone" value="{{ old('phone') }}"
+                                        class="modal-input" placeholder="Enter Phone Number">
+                                    @error('phone')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="mt-3">
-                                    <label for="" class="form-label fw-medium mb-0">Email</label>
-                                    <input type="email" name="email" value="{{ old('email') }}"
-                                        class="modal-input" placeholder="awesomaa1@domain.com">
+                                    <label for="email" class="form-label fw-medium mb-0">Email</label>
+                                    <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                        class="modal-input" placeholder="Enter Email">
                                     @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
@@ -566,18 +566,18 @@
                                 </div>
 
                                 <div class="mt-3">
-                                    <label for="" class="form-label fw-medium mb-0">Address</label>
-                                    <input type="text" name="address" value="{{ old('address') }}"
-                                        class="modal-input" placeholder="123 Eve, Rookers Block Las Vegas">
-                                    @error('address')
+                                    <label for="location" class="form-label fw-medium mb-0">Address</label>
+                                    <input type="text" id="location" name="location" value="{{ old('location') }}"
+                                        class="modal-input" placeholder="Enter Address">
+                                    @error('location')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <div class="mt-3">
-                                    <label for="" class="form-label fw-medium mb-0">Referal</label>
-                                    <input type="text" name="referral" value="{{ old('referral') }}"
-                                        id="" class="modal-input" placeholder="Enter Referal">
-                                    @error('referral')
+                                    <label for="referrance" class="form-label fw-medium mb-0">Referrance</label>
+                                    <input type="text" id="referrance" name="referrance" value="{{ old('referrance') }}"
+                                        id="" class="modal-input" placeholder="Enter Referrance">
+                                    @error('referrance')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>

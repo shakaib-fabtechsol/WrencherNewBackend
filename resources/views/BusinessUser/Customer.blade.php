@@ -7,6 +7,11 @@
 </head>
 
 <body>
+    @if (session('success'))
+        <script>
+            swal("Good job!", "{{ session('success') }}", "success")
+        </script>
+    @endif
     <section>
         <div class="main">
             @include('Templates.BusinessUserSideBar')

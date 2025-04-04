@@ -18,6 +18,7 @@ Route::controller(AuthController::class)->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::controller(BusinessUserController::class)->group(function () {
         Route::get('test', 'test')->name('test');
+        Route::post('AddCustomer', 'StoreCustomer')->name('BusinessUser.AddCustomer');
     });
 
 });

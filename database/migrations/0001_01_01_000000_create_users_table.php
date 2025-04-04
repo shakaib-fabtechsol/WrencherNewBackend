@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('referrance')->nullable();
             $table->rememberToken();
             $table->text('token')->nullable();
+            $table->integer('businessUserId')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
 
