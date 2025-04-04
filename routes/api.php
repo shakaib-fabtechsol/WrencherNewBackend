@@ -7,7 +7,7 @@ use App\Http\Controllers\BusinessUserController;
 
 
 Route::controller(AuthController::class)->group(function () {
-    Route::post('ProcessLogin', 'ProcessLogin')->name('UserLogin');
+    Route::post('UserLogin', 'ProcessLogin')->name('UserLogin');
     Route::post('UserSignup', 'ProcessSignup')->name('UserSignup');
 });
 
