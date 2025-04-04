@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <form method="POST" action="{{ route('ProcessLogin') }}">
-
+                        @csrf
                         <h3 class="text-center mt-4 fw-bold">Welcome Back</h3>
                         <p class="fs-5 font-md mt-xl-4">Enter Login</p>
                         <div class="mt-2">

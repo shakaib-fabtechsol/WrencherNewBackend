@@ -12,7 +12,6 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append(\Illuminate\Session\Middleware\StartSession::class);
         $middleware->alias([
             'AdminMiddleware' => \App\Http\Middleware\AdminMiddleware::class,
             'BusinessUserMiddleware' => \App\Http\Middleware\BusinessUserMiddleware::class,
