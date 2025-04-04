@@ -55,7 +55,7 @@ class CommenController extends Controller
         
             return response()->json([
                 'message' => 'User details successfully updated!',
-                'user' => $user,
+                'user' => $GetUser,
             ], 200);
         }
      
