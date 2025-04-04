@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResetPasswordMail;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -117,9 +120,72 @@ class AuthController extends Controller
         return view('Auth.ForgetPassword');
     }
 
-    public function NewPassword()
+    public function ResetPasswordEmail(Request $request)
     {
-        return view('Auth.NewPassword');
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|exists:users,email',
+        ]);
+        if ($validator->fails()) {
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'errors' => $validator->errors()
+                ], 400);
+            }
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $token = Password::createToken(User::where('email', $request->email)->first());
+        User::where('email','=',$request->email)->update(['token' => $token]);
+        if (!$token) {
+            if ($request->wantsJson()) {
+            return response()->json(['error' => 'Unable to generate password reset token. Please try again later.'], 400);
+            }
+        }
+        Mail::to($request->email)->send(new ResetPasswordMail($token));
+        if ($request->wantsJson()) {
+            return response()->json(['message' => 'Password reset link has been sent to your email.'], 200);
+        }
+        return redirect()->back()->with('success', 'Password reset link has been sent to your email.');
+    }
+
+    public function ChangePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'new_password' => 'required',
+            'confirm_password' => 'required|same:new_password',
+        ]);
+        if ($validator->fails()) {
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'errors' => $validator->errors()
+                ], 400);
+            }
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $GetUserDetails = User::where('token', $request->token)->first();
+        if ($GetUserDetails == null) {
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'error' => 'Invalid token'
+                ], 400);
+            }
+            return redirect()->back()->with('error', 'Invalid token');
+        }
+        $GetUserDetails->update(['password' => Hash::make($request->new_password),'token' => null]);
+        
+        if ($request->wantsJson()) {
+            return response()->json(['message' => 'Your password has been reset successfully.'], 200);
+        }
+        return redirect()->route('Login')->with('success', 'Your password has been reset successfully.');
+    }
+
+    public function NewPassword(Request $request)
+    {
+        $token = $request->query('token');
+        $user = User::where('token', $token)->first();
+        if (!$user) {
+            abort(419, 'Page Expired');
+        }
+        return view('Auth.NewPassword', compact('token'));
     }
 
     public function Logout()

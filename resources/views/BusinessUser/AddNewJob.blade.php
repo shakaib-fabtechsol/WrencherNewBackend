@@ -506,7 +506,7 @@
                         aria-label="Close"><i class="fa-solid fs-4 fa-circle-xmark text-danger"></i></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('BusinessUser.StoreCustomer') }}">
+                    <form method="post" action="">
                         @csrf
                         <div class="row">
                             <div class="col-lg-7 mx-auto">

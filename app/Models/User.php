@@ -28,6 +28,7 @@ class User extends Authenticatable
         'location',
         'industry',
         'referrance',
+        'token',
     ];
 
     /**

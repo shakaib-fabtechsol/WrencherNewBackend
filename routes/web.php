@@ -14,6 +14,8 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('ProcessSignup', 'ProcessSignup')->name('ProcessSignup');
     Route::get('NewPassword', 'NewPassword')->name('NewPassword');
     Route::get('ForgetPassword', 'ForgetPassword')->name('ForgetPassword');
+    Route::post('ResetPasswordEmail','ResetPasswordEmail')->name('ResetPasswordEmail');
+    Route::post('ChangePassword', 'ChangePassword')->name('ChangePassword');
     Route::get('Terms', 'Terms')->name('Terms');
     Route::get('Logout', 'Logout')->name('Logout');
 });

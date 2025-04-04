@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('industry')->nullable();
             $table->string('referrance')->nullable();
             $table->rememberToken();
+            $table->text('token')->nullable();
             $table->timestamps();
         });
 

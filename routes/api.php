@@ -11,6 +11,8 @@ Route::controller(CommenController::class)->group(function () {
 Route::controller(AuthController::class)->group(function () {
     Route::post('UserLogin', 'ProcessLogin')->name('UserLogin');
     Route::post('UserSignup', 'ProcessSignup')->name('UserSignup');
+    Route::post('UserResetPasswordEmail','ResetPasswordEmail')->name('UserResetPasswordEmail');
+    Route::post('UserChangePassword', 'ChangePassword')->name('UserChangePassword');
 });
 
 Route::middleware('auth:sanctum')->group(function () {
