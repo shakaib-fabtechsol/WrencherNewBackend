@@ -99,12 +99,17 @@ class AuthController extends Controller
                 'token' => $token
             ], 200);
         }
-
-        return redirect()->route('Home')->with([
-            'success' => 'User created successfully',
-            'user' => $user,
-            'token' => $token
-        ]);
+        Session::put('user', $user);
+        switch ($user->role) {
+            case 0:
+                return redirect()->route('Admin.Dashboard')->with('success', 'You have been logged in successfully');
+            case 1:
+                return redirect()->route('BusinessUser.Dashboard')->with('success', 'You have been logged in successfully');
+            case 2:
+                return redirect()->route('Client.Dashboard')->with('success', 'You have been logged in successfully');
+            default:
+                return redirect()->route('Home')->with('success', 'You have been logged in successfully');
+        }
     }
  
     public function ForgetPassword()

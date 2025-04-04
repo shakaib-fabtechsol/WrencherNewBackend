@@ -7,8 +7,8 @@ use App\Http\Controllers\BusinessUserController;
 
 
 Route::controller(AuthController::class)->group(function () {
-    Route::post('ProcessLogin', 'ProcessLogin')->name('ProcessLogin');
-    Route::post('ProcessSignup', 'ProcessSignup')->name('ProcessSignup');
+    Route::post('ProcessLogin', 'ProcessLogin')->name('UserLogin');
+    Route::post('UserSignup', 'ProcessSignup')->name('UserSignup');
 });
 
 Route::middleware('auth:sanctum')->group(function () {
