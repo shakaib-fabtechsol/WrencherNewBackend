@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function ($view) {
             if (Session::has('user')) {
-                $user = User::where('role', Session::get('user')->role)->first();
+                $user = User::where('id', Session::get('user')->id)->first();
                 $view->with('sharedUser', $user);
             }
         });

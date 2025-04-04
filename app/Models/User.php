@@ -29,6 +29,7 @@ class User extends Authenticatable
         'industry',
         'referrance',
         'token',
+        'img',
     ];
 
     /**

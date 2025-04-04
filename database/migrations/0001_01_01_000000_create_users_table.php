@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('referrance')->nullable();
             $table->rememberToken();
             $table->text('token')->nullable();
+            $table->text('img')->nullable();
             $table->timestamps();
         });
 

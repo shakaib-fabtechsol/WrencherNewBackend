@@ -11,7 +11,11 @@
 
                 </div>
                 <div class="position-relative" bis_skin_checked="1">
-                    <img src="{{ asset('img/user.png') }}" alt="user" class="userimg me-0">
+                    @if ($sharedUser->img != null)
+                        <img src="{{ asset('img/' . $sharedUser->img) }}" alt="user" class="userimg me-0">
+                    @else
+                        <img src="{{ asset('img/user.png') }}" alt="user" class="userimg me-0">
+                    @endif
                     <div class="dot-profile">
 
                     </div>
