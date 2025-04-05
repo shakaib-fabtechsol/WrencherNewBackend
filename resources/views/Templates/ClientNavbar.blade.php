@@ -7,11 +7,16 @@
         <div class="dropdown d-flex justify-content-between w-100 align-items-center" bis_skin_checked="1">
             <a class="mb-0 text-decoration-none d-flex align-items-center">
                 <div class="ms-2 d-none d-sm-block me-2 me-sm-0" bis_skin_checked="1">
-                    <h6 class="text-center mb-0 l-h font-md text-dark">John Smith</h6>
+                    <h6 class="text-center mb-0 l-h font-md text-dark">{{ $sharedUser->name }}</h6>
 
                 </div>
                 <div class="position-relative" bis_skin_checked="1">
-                    <img src="{{ asset('img/user.png') }}" alt="user" class="userimg me-0">
+                    @if ($sharedUser->img != null)
+                        <img src="{{ asset('img/' . $sharedUser->img) }}" alt="user" class="userimg me-0">
+                    @else
+                        <img src="{{ asset('img/user.png') }}" alt="user" class="userimg me-0">
+                    @endif
+
                     <div class="dot-profile">
 
                     </div>

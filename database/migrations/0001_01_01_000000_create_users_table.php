@@ -28,6 +28,7 @@ return new class extends Migration
             $table->text('token')->nullable();
             $table->integer('businessUserId')->nullable();
             $table->string('phone')->nullable();
+            $table->text('img')->nullable();
             $table->timestamps();
         });
 

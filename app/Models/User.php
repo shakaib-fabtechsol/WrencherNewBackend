@@ -31,6 +31,7 @@ class User extends Authenticatable
         'token',
         'phone',
         'businessUserId',
+        'img',
     ];
 
     /**
