@@ -816,6 +816,9 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu1gwHCSzLG9ACacQqLk-LG8oJMkarNF0&libraries=places&callback=initAutocomplete">
     </script>
+    <script>
+        window.customersFromLaravel = @json($customers);
+    </script>
     @include('Templates.Jslinks')
     <script>
         $(document).ready(function() {

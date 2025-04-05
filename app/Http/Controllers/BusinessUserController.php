@@ -18,7 +18,9 @@ class BusinessUserController extends Controller
 
     public function AddNewJob()
     {
-        return view('BusinessUser.AddNewJob');
+        $customers = User::select('id','name','email')->where('businessUserId', Session::get('user')->id)->orderBy('id','desc')->get();
+        // dd($customers);
+        return view('BusinessUser.AddNewJob', compact('customers'));
     }
 
     public function WebsiteAnalytics()
@@ -142,7 +144,9 @@ class BusinessUserController extends Controller
 
     public function Customer()
     {
-        return view('BusinessUser.Customer');
+        $customers = User::where('businessUserId', Session::get('user')->id)->orderBy('id','desc')->get();
+
+        return view('BusinessUser.Customer', compact('customers'));
     }
 
     public function StoreCustomer(Request $request)

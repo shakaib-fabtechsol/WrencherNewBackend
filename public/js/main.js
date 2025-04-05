@@ -67,13 +67,7 @@ $(document).ready(function () {
     });
     
     // Sample customer data
-    const customers = [
-        { name: 'Customer 1', img: '../img/user.png' },
-        { name: 'Customer 2', img: '../img/user.png' },
-        { name: 'Customer 3', img: '../img/user.png' },
-        { name: 'Customer 4', img: '../img/user.png' },
-        { name: 'Customer 5', img: '../img/user.png' },
-    ];
+    const customers = window.customersFromLaravel || [];
     
     const customerList = document.querySelector('.customer-list');
     const dropdownToggle = document.querySelector('.dropdown-toggle2');
@@ -85,7 +79,7 @@ $(document).ready(function () {
         filteredCustomers.forEach(customer => {
             const li = document.createElement('li');
             li.className = 'customer-list-item';
-            li.innerHTML = `<img src="${customer.img}" alt="Customer image">${customer.name}`;
+            li.innerHTML = `<img src="../img/user.png" alt="Customer image">${customer.name}`;
             li.addEventListener('click', function () {
                 dropdownToggle.textContent = customer.name; // Update the dropdown button text
                 document.querySelector('.dropdown-menu1').style.display = 'none'; // Close the dropdown menu
