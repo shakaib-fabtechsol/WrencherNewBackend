@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 class BusinessUserController extends Controller
 {
 
@@ -12,7 +18,9 @@ class BusinessUserController extends Controller
 
     public function AddNewJob()
     {
-        return view('BusinessUser.AddNewJob');
+        $customers = User::select('id','name','email')->where('businessUserId', Session::get('user')->id)->orderBy('id','desc')->get();
+        // dd($customers);
+        return view('BusinessUser.AddNewJob', compact('customers'));
     }
 
     public function WebsiteAnalytics()
@@ -136,7 +144,53 @@ class BusinessUserController extends Controller
 
     public function Customer()
     {
-        return view('BusinessUser.Customer');
+        $customers = User::where('businessUserId', Session::get('user')->id)->orderBy('id','desc')->get();
+
+        return view('BusinessUser.Customer', compact('customers'));
+    }
+
+    public function StoreCustomer(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'company' => 'required',
+            'location' => 'required',
+            'referrance' => 'required',
+        ]);
+    
+        if ($validator->fails()) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'errors' => $validator->errors()
+                ], 400);
+            }
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $request->all();
+        if(Auth::check()){
+            $data['businessUserId'] = Auth::user()->id;
+        }else{
+            $data['businessUserId'] = Session::get('user')->id;
+        }
+        $data['role'] = 2;
+        $user = User::create($data);
+
+        if ($request->wantsJson() || $request->is('api/*')) {
+            return response()->json([
+                'message' => 'Customer added successfully!',
+                'user' => $user
+            ], 200);
+        }
+
+        if($request->returnback == 'customer')
+        {
+            return redirect()->route('BusinessUser.Customer')->with('success','customer has been added successfully');
+        }
+        return redirect()->back()->with('success','customer has been added successfully');
     }
 
     public function AddNewCustomer()

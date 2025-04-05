@@ -25,36 +25,70 @@
         <div class="p-2">
             <div class="right-bottom1">
                 <div class="container-fluid h-100">
-                    <form action="#" class="">
+                    <form method="post" action="{{ route('BusinessUser.StoreCustomer') }}">
+                        @csrf
+                        <input type="hidden" name="returnback" value="customer">
                         <h4 class="mb-0 blu2">Add New Customer Details</h4>
                         <div class="row mt-3">
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-sm-6 mb-3">
-                                        <label for="fullname" class="ps-2 fw-semibold">Full Name</label>
-                                        <input type="text" id="fullname" class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Type here">
+                                        <label for="name" class="ps-2 fw-semibold">Full Name</label>
+                                        <input type="text" id="name" name="name" value="{{ old('name') }}"
+                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Type here">
+                                        @error('name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="company" class="ps-2 fw-semibold">Company</label>
+                                        <input type="text" id="company" name="company" value="{{ old('company') }}"
+                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Type here">
+                                        @error('company')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="phone" class="ps-2 fw-semibold">Phone Number</label>
-                                        <input type="tel" id="phone" class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Type here">
+                                        <input type="tel" id="phone" name="phone" value="{{ old('phone') }}"
+                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Type here">
+                                        @error('phone')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="email" class="ps-2 fw-semibold">Email</label>
-                                        <input type="email" id="email" class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Type here">
+                                        <input type="email" id="email" name="email" value="{{ old('email') }}"
+                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Type here">
+                                        @error('email')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-6 mb-3">
-                                        <label for="ref" class="ps-2 fw-semibold">How did you hear about
-                                            us?</label>
-                                        <input type="text" id="ref" class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Type here">
+                                        <label for="password" class="ps-2 fw-semibold">Password</label>
+                                        <input type="password" id="password" name="password"
+                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Type here">
+                                        @error('password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-6 mb-3">
-                                        <label for="ref" class="ps-2 fw-semibold">Address</label>
-                                        <input type="text" id="ref" class="w-100 bg-white border rounded-3 p-2"
+                                        <label for="location" class="ps-2 fw-semibold">Address</label>
+                                        <input type="text" id="location" name="location"
+                                            value="{{ old('location') }}" class="w-100 bg-white border rounded-3 p-2"
                                             placeholder="Type here">
+                                        @error('location')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="referrance" class="ps-2 fw-semibold">Referrance</label>
+                                        <input type="text" id="referrance" name="referrance"
+                                            value="{{ old('referrance') }}" class="w-100 bg-white border rounded-3 p-2"
+                                            placeholder="Type here">
+                                        @error('referrance')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <!-- <div class="d-md-flex align-items-center justify-content-between mb-3">
@@ -91,7 +125,7 @@
                         </div>
                         <div class="row mt-5 mb-2">
                             <div class="col-lg-2 col-md-3 col-sm-4 mb-2">
-                                <button class="border py-2 w-100 rounded-3">Cancel</button>
+                                <button type="button" onclick="window.location.href='{{ route('BusinessUser.Customer') }}'" class="border py-2 w-100 rounded-3">Cancel</button>
                             </div>
                             <div class="col-lg-2 col-md-3 col-sm-4 mb-2">
                                 <button class="border py-2 bg-sky text-white w-100 rounded-3">Save</button>

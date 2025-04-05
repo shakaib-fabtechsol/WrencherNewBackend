@@ -7,6 +7,11 @@
 </head>
 
 <body>
+    @if (session('success'))
+        <script>
+            swal("Good job!", "{{ session('success') }}", "success")
+        </script>
+    @endif
     <section>
         <div class="main">
             @include('Templates.BusinessUserSideBar')
@@ -118,54 +123,32 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="align-middle">
-                                                        <td><img src="{{ asset('img/customer1.png') }}" alt=""
-                                                                class="cus-img"></td>
-                                                        <td><a href="{{ route('BusinessUser.CustomerDetails') }}"
-                                                                class="sky-c text-decoration-none">Alexia Haass</a>
-                                                        </td>
-                                                        <td>+21 090 909 9090</td>
-                                                        <td>customer@gmail.com</td>
-                                                        <td>locationdetailshere</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div>
-                                                                    <a href="#"
-                                                                        class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                            class="fa-solid fa-pen text-dark"></i></a>
+                                                    @foreach ($customers as $customer)
+                                                        <tr class="align-middle">
+                                                            <td><img src="{{ asset('img/customer1.png') }}" alt=""
+                                                                    class="cus-img"></td>
+                                                            <td><a href="{{ route('BusinessUser.CustomerDetails') }}"
+                                                                    class="sky-c text-decoration-none">{{ $customer['name'] }}</a>
+                                                            </td>
+                                                            <td>{{ $customer['phone'] }}</td>
+                                                            <td>{{ $customer['email'] }}</td>
+                                                            <td>{{ $customer['location'] }}</td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+                                                                    <div>
+                                                                        <a href="#"
+                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
+                                                                                class="fa-solid fa-pen text-dark"></i></a>
+                                                                    </div>
+                                                                    <div class="ms-2">
+                                                                        <a href="#"
+                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
+                                                                                class="fa-solid fa-trash text-dark"></i></a>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="ms-2">
-                                                                    <a href="#"
-                                                                        class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                            class="fa-solid fa-trash text-dark"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="align-middle">
-                                                        <td><img src="{{ asset('img/customer1.png') }}" alt=""
-                                                                class="cus-img"></td>
-                                                        <td><a href="{{ route('BusinessUser.CustomerDetails') }}"
-                                                                class="sky-c text-decoration-none">Alexia Haass</a>
-                                                        </td>
-                                                        <td>+21 090 909 9090</td>
-                                                        <td>customer@gmail.com</td>
-                                                        <td>locationdetailshere</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div>
-                                                                    <a href="#"
-                                                                        class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                            class="fa-solid fa-pen text-dark"></i></a>
-                                                                </div>
-                                                                <div class="ms-2">
-                                                                    <a href="#"
-                                                                        class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                            class="fa-solid fa-trash text-dark"></i></a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

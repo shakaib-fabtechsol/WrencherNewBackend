@@ -132,6 +132,7 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('PriceBook', 'PriceBook')->name('BusinessUser.PriceBook');
 
             Route::get('Customer', 'Customer')->name('BusinessUser.Customer');
+            Route::post('StoreCustomer', 'StoreCustomer')->name('BusinessUser.StoreCustomer');
             Route::get('AddNewCustomer', 'AddNewCustomer')->name('BusinessUser.AddNewCustomer');
             Route::get('CustomerDetails', 'CustomerDetails')->name('BusinessUser.CustomerDetails');
 
