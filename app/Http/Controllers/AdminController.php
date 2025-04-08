@@ -25,14 +25,45 @@ class AdminController extends Controller
         $user = User::where('role', 1)->get();
         return view('Admin.BusinessManagement', ['users' => $user]);
     }
+    public function EditUser($id)
+    {
+        $user = User::findOrFail($id);
+        return view('Admin.EditUser', compact('user'));
+    }
+    public function UpdateUser(Request $request, $id)
+    {
+        $request->validate([
+            'name'      => 'required|string|max:255',
+            'lastName'  => 'required|string|max:255',
+            'email'     => 'required|email|max:255|unique:users,email,'. $id,
+            'phone'     => 'required|string|max:255',
+            'location'  => 'required|string|max:255',
+        ]);
+    
+        $user = User::findOrFail($id);
+    
+        $user->update([
+            'name'      => $request->name,
+            'lastName'  => $request->lastName,
+            'email'     => $request->email,
+            'phone'     => $request->phone,
+            'location'  => $request->location,
+        ]);
+    
+        return redirect()->route('Admin.BusinessManagement')->with('success', 'User updated successfully.');
+    }
+    public function DeleteUser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('Admin.BusinessManagement')->with('success', 'User deleted successfully.');
+    }
     public function ViewDetail()
     {
         return view('Admin.ViewDetail');
     }
-    public function ScheduleCalendar()
-    {
-        return view('Admin.ScheduleCalendar');
-    }
+
 
     public function Chat()
     {
@@ -99,9 +130,6 @@ class AdminController extends Controller
 
         return redirect()->route('Admin.Packages')->with('success', 'Package deleted successfully.');
     }
-
-
-
 
     public function Industry()
     {

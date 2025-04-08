@@ -96,13 +96,13 @@
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <li>
-                                                                        <a class="dropdown-item" href=" }}">
+                                                                        <a class="dropdown-item" href="{{ route('Admin.EditUser', $user->id) }}">
                                                                             <i class="fa-solid fa-pencil me-2"></i>
                                                                             Edit
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a class="dropdown-item" href="">
+                                                                        <a class="dropdown-item" href="{{ route('Admin.DeleteUser', $user->id) }}">
                                                                             <i class="fa-solid fa-trash me-2"></i>
                                                                             Delete
                                                                         </a>

@@ -42,7 +42,11 @@ Route::group(['middleware' => ['AdminMiddleware']], function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('Dashboard', 'Dashboard')->name('Admin.Dashboard');
             Route::get('BusinessManagement', 'BusinessManagement')->name('Admin.BusinessManagement');
+            Route::get('DeleteUser/{id}', 'DeleteUser')->name('Admin.DeleteUser');
+            Route::get('EditUser/{id}', 'EditUser')->name('Admin.EditUser');
+            Route::post('UpdateUser/{id}', 'UpdateUser')->name('Admin.UpdateUser');
             Route::get('ViewDetail', 'ViewDetail')->name('Admin.ViewDetail');
+
             Route::get('Chat', 'Chat')->name('Admin.Chat');
 
             Route::get('Packages', 'Packages')->name('Admin.Packages');
