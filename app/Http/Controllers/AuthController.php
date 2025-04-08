@@ -60,6 +60,7 @@ class AuthController extends Controller
             ], 200);
         }
         Session::put('user', $user);
+        Auth::login($user);
         switch ($user->role) {
             case 0:
                 return redirect()->route('Admin.Dashboard')->with('success', 'You have been logged in successfully');

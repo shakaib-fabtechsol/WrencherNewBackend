@@ -7,6 +7,11 @@
 </head>
 
 <body class="bg-white">
+    @if (session('success'))
+        <script>
+            swal("Good Job!", "{{ session('success') }}", "success");
+        </script>
+    @endif
     <section class="my-3 mx-sm-3 mx-2 nav-bg rounded-4">
         <div class="p-3 border-bottom">
             <div class="d-flex align-items-center justify-content-between w-100">
@@ -25,32 +30,45 @@
         <div class="p-2">
             <div class="right-bottom1">
                 <div class="container-fluid h-100">
-                    <form action="#" class="">
+                    <form method="post" action="{{ route('BusinessUser.CreateInventory') }}">
+                        @csrf
                         <h4 class="mb-0 blu2 mt-3">Add New Item Details</h4>
                         <div class="row mt-3">
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class="col-sm-6 mb-3">
-                                        <label for="fullname" class="ps-2 fw-semibold">Item Name</label>
-                                        <input type="text" id="fullname" class="w-100 bg-white border rounded-3 p-2"
+                                        <label for="name" class="ps-2 fw-semibold">Item Name</label>
+                                        <input type="text" id="name" name="name" class="w-100 bg-white border rounded-3 p-2"
                                             placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
-                                        <label for="phone" class="ps-2 fw-semibold">Item Description</label>
-                                        <input type="tel" id="phone" class="w-100 bg-white border rounded-3 p-2"
+                                        <label for="description" class="ps-2 fw-semibold">Item Description</label>
+                                        <input type="text" id="description" name="description" class="w-100 bg-white border rounded-3 p-2"
                                             placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
-                                        <label for="email" class="ps-2 fw-semibold">Item Type</label>
-                                        <input type="email" id="email" class="w-100 bg-white border rounded-3 p-2"
+                                        <label for="type" class="ps-2 fw-semibold">Item Type</label>
+                                        <input type="text" id="type" name="type" class="w-100 bg-white border rounded-3 p-2"
                                             placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
-                                        <label for="ref" class="ps-2 fw-semibold">Item Quantity</label>
-                                        <input type="text" id="ref" class="w-100 bg-white border rounded-3 p-2"
+                                        <label for="quantity" class="ps-2 fw-semibold">Item Quantity</label>
+                                        <input type="text" id="quantity" name="quantity" class="w-100 bg-white border rounded-3 p-2"
                                             placeholder="Type here">
                                     </div>
-
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="date" class="ps-2 fw-semibold">Date</label>
+                                        <input type="date" id="date" name="date" class="w-100 bg-white border rounded-3 p-2"
+                                            placeholder="Type here">
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="trackingStatus" class="ps-2 fw-semibold">Tracking Status</label>
+                                        <select id="trackingStatus" name="trackingStatus" class="w-100 bg-white border rounded-3 p-2" name="trackingStatus" id="">
+                                            <option value="High">High</option>
+                                            <option value="Medium">Medium</option>
+                                            <option value="Low">Low</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-sm-6 mb-3 d-flex justify-content-between align-content-center">
@@ -111,7 +129,7 @@
                                 <button class="border py-2 w-100 rounded-3">Cancel</button>
                             </div>
                             <div class="col-lg-2 col-md-3 col-sm-4 mb-2">
-                                <button class="border py-2 bg-sky text-white w-100 rounded-3">Save</button>
+                                <button type="submit" class="border py-2 bg-sky text-white w-100 rounded-3">Save</button>
                             </div>
                         </div>
                     </form>

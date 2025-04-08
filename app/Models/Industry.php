@@ -10,6 +10,5 @@ class Industry extends Model
         
         'name', 
         'img',
-    
     ];
 }
