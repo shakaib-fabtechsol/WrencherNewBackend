@@ -115,13 +115,13 @@
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a class="dropdown-item" href=" }}">
+                                                                        <a class="dropdown-item" href="#">
                                                                             <i class="fa-solid fa-envelope me-2"></i>
                                                                             Send Message
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a class="dropdown-item" href=" }}">
+                                                                        <a class="dropdown-item" href="#">
                                                                             <i class="fa-solid fa-ban me-2"></i>
                                                                             Deactivate Account
                                                                         </a>
