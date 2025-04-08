@@ -59,7 +59,7 @@ class AdminController extends Controller
     public function Industry()
     {
         $industries = Industry::get();
-        return view('Admin.Industry', ['industries'=> $industries]);
+        return view('Admin.Industry', ['industries' => $industries]);
     }
     public function AddNewIndustry()
     {
@@ -83,6 +83,49 @@ class AdminController extends Controller
         ]);
         return redirect()->route('Admin.Industry');
     }
+    public function DeleteIndustry($id)
+    {
+        $industry = Industry::findOrFail($id);
+        $imagePath = public_path('uploads/' . $industry->img);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+        $industry->delete();
+        return redirect()->route('Admin.Industry')->with('success', 'Industry deleted successfully.');
+    }
+    public function EditIndustry($id)
+    {
+        $industry = Industry::findOrFail($id);
+        return view('admin.EditIndustry', compact('industry'));
+    }
+    public function UpdateIndustry(Request $request, $id)
+    {
+        $industry = Industry::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $industry->name = $request->name;
+
+        if ($request->hasFile('img')) {
+            $oldPath = public_path('uploads/' . $industry->img);
+            if (file_exists($oldPath)) {
+                unlink($oldPath);
+            }
+            $photo = $request->file('img');
+            $photo_name = time() . "-" . $photo->getClientOriginalName();
+            $photo->move(public_path('uploads'), $photo_name);
+
+            $industry->img = $photo_name;
+        }
+
+        $industry->save();
+
+        return redirect()->route('Admin.Industry')->with('success', 'Industry updated successfully.');
+    }
+
 
     public function Notifications()
     {

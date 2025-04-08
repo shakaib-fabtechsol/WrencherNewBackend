@@ -55,6 +55,9 @@ Route::group(['middleware' => ['AdminMiddleware']], function () {
             Route::get('Industry', 'Industry')->name('Admin.Industry');
             Route::get('AddNewIndustry', 'AddNewIndustry')->name('Admin.AddNewIndustry');
             Route::post('SaveIndustry', 'SaveIndustry')->name('Admin.SaveIndustry');
+            Route::get('DeleteIndustry/{id}', 'DeleteIndustry')->name('Admin.DeleteIndustry');
+            Route::get('EditIndustry/{id}', 'EditIndustry')->name('Admin.EditIndustry');
+            Route::post('UpdateIndustry/{id}', 'UpdateIndustry')->name('Admin.UpdateIndustry');
             
             Route::get('Notifications', 'Notifications')->name('Admin.Notifications');
             Route::get('Profile', 'Profile')->name('Admin.Profile');
