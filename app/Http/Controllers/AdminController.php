@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Industry;
+use App\Models\Inventory;
+use App\Models\User;
+use Illuminate\Http\Request;
+
 class AdminController extends Controller
 {
 
@@ -16,7 +21,8 @@ class AdminController extends Controller
 
     public function BusinessManagement()
     {
-        return view('Admin.BusinessManagement');
+        $user = User::where('role', 1)->get();
+        return view('Admin.BusinessManagement', ['users' => $user]);
     }
     public function ViewDetail()
     {
@@ -52,11 +58,30 @@ class AdminController extends Controller
 
     public function Industry()
     {
-        return view('Admin.Industry');
+        $industries = Industry::get();
+        return view('Admin.Industry', ['industries'=> $industries]);
     }
     public function AddNewIndustry()
     {
         return view('Admin.AddNewIndustry');
+    }
+    public function SaveIndustry(Request $request)
+    {
+        $request->validate([
+            'name'     => 'required|string|max:255',
+            'img'    => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $photo = $request->file('img');
+        $photo_name = time() . "-" . $photo->getClientOriginalName();
+        $photo_destination = public_path('uploads');
+        $photo->move($photo_destination, $photo_name);
+
+        $industry = Industry::create([
+            'name'     => $request->name,
+            'img'    => $photo_name,
+        ]);
+        return redirect()->route('Admin.Industry');
     }
 
     public function Notifications()

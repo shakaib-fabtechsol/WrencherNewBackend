@@ -25,7 +25,7 @@
         <div class="p-2">
             <div class="right-bottom1">
                 <div class="container-fluid h-100">
-                    <form method="post" action="{{ route('Admin.StoreIndustry') }}" class=""
+                    <form method="post" action="{{route('Admin.SaveIndustry')}}"
                         enctype="multipart/form-data">
                         @csrf
                         <h4 class="mb-0">Add New Industry</h4>
@@ -43,7 +43,7 @@
                                                             <div>
                                                                 <label for="title"
                                                                     class="sky-c form-label fw-medium font-12 ps-2">Title</label>
-                                                                <input type="text" name="title"
+                                                                <input type="text" name="name"
                                                                     value="{{ old('title') }}" id="title"
                                                                     class="sky-c border bg-white w-100 py-2 rounded-3 px-2"
                                                                     placeholder="Title here">
@@ -57,7 +57,7 @@
                                                                 class="sky-c form-label fw-medium font-12 ps-2">Upload
                                                                 Image</label>
                                                             <div class="w-100 bg-white border rounded-3 p-2">
-                                                                <input type="file" name="image" id="picture-c"
+                                                                <input type="file" name="img" id="picture-c"
                                                                     class="d-none" accept="image/png">
                                                                 <label for="picture-c" class="uploadbtn2">
                                                                     <a class="uploadbtn2a">Upload Image</a>
@@ -70,14 +70,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="col-12">
-                                                        <div>
-                                                            <label for=""
-                                                                class="sky-c form-label fw-medium mb-0 font-12 ps-2">Detail</label>
-                                                            <textarea name="" id="" class="sky-c border bg-white w-100 py-2 rounded-3 px-2"
-                                                                placeholder="Description" rows="5"></textarea>
-                                                        </div>
-                                                    </div> --}}
                                                 </div>
                                             </div>
                                             <div class="d-flex align-items-center mt-lg-0 mt-5">

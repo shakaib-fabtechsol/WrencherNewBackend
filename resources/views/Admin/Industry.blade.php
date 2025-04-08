@@ -62,55 +62,49 @@
                                                     <th class="font-semi">ID</th>
                                                     <th class="font-semi">Title</th>
                                                     <th class="font-semi">Image</th>
-                                                    <th class="font-semi">Status</th>
+                                                    <th class="font-semi">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="align-middle">
-                                                    <td class="font-md">1</td>
-                                                    <td class="font-md">title</td>
-                                                    <td>
-                                                        <a href="#" class="text-decoration-none">
-                                                            <div class="d-flex align-items-center">
-                                                                <img src="" alt="customer1"
-                                                                    class="me-2 cus-img rounded-circle">
-                                                                {{-- <span class="lblue font-md">Alexia Haass</span> --}}
+                                                @foreach ($industries as $industry)
+                                                    <tr class="align-middle">
+                                                        <td class="font-md">{{ $industry->id ?? 'N/A' }}</td>
+                                                        <td class="font-md">{{ $industry->name ?? 'N/A' }}</td>
+                                                        <td>
+                                                            <a href="#" class="text-decoration-none">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="{{ asset('uploads/' . $industry->img) }}"
+                                                                        alt="customer1"
+                                                                        class="me-2 cus-img rounded-circle">
+                                                                </div>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button
+                                                                    class="border-0 bg-lgrey2 text-black rounded-2 px-2 py-2"
+                                                                    type="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false">
+                                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#">
+                                                                            <i class="fa-solid fa-pencil me-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="#">
+                                                                            <i class="fa-solid fa-trash me-2"></i>
+                                                                            Delete
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
-                                                        </a>
-                                                    </td>
-
-                                                    <td class="font-md">status</td>
-
-                                                    {{-- <td>
-                                                    <div class="dropdown">
-                                                        <button
-                                                            class="border-0 bg-lgrey2 text-black rounded-2 px-2 py-2"
-                                                            type="button" data-bs-toggle="dropdown"
-                                                            aria-expanded="false">
-                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item"
-                                                                    href="{{ route('Admin.ViewDetail') }}"><img
-                                                                        src="{{ asset('img/img-1.png') }}"
-                                                                        alt="" class="me-2">View
-                                                                    Details</a></li>
-                                                            <li><a class="dropdown-item" href="#"><img
-                                                                        src="{{ asset('img/edit.png') }}"
-                                                                        alt="" class="me-2">Edit</a>
-                                                            </li>
-                                                            <li><a class="dropdown-item" href="#"><img
-                                                                        src="{{ asset('img/img-2.png') }}"
-                                                                        alt="" class="me-2">Deactivate
-                                                                    Account</a></li>
-                                                            <li><a class="dropdown-item" href="#"><img
-                                                                        src="{{ asset('img/img-3.png') }}"
-                                                                        alt="" class="me-2">Send
-                                                                    Message</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td> --}}
-                                                </tr>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

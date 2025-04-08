@@ -54,6 +54,7 @@
                                 </div>
                                 <div class="bg-white px-3 py-2 mt-3 rounded-3 nav-tabs">
                                     <div class="table-responsive reports-tbl mt-2">
+
                                         <table class="table">
                                             <thead>
                                                 <tr class="align-middle">
@@ -68,53 +69,57 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="align-middle">
-                                                    <td class="font-md">PK:9090</td>
-                                                    <td>
-                                                        <a href="#" class="text-decoration-none">
-                                                            <div class="d-flex align-items-center">
-                                                                <img src="{{ asset('img/customer1.png') }}"
-                                                                    alt="customer1" class="me-2 cus-img rounded-circle">
-                                                                <span class="lblue font-md">Alexia Haass</span>
+                                                @foreach ($users as $user)
+                                                    <tr class="align-middle">
+                                                        <td class="font-md">{{ $user->id ?? 'N/A' }}</td>
+                                                        <td>
+                                                            <a href="#" class="text-decoration-none">
+                                                                <div class="d-flex align-items-center">
+                                                                    <img src="{{ asset('img/customer1.png') }}"
+                                                                        alt="customer1"
+                                                                        class="me-2 cus-img rounded-circle">
+                                                                </div>
+                                                            </a>
+                                                        </td>
+                                                        <td class="font-md">{{ $user->name ?? 'N/A' }}</td>
+                                                        <td class="font-md">{{ $user->lastName ?? 'N/A' }}</td>
+                                                        <td class="font-md">{{ $user->phone ?? 'N/A' }}</td>
+                                                        <td>{{ $user->email ?? 'N/A' }}</td>
+                                                        <td>{{ $user->location ?? 'N/A' }}</td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button
+                                                                    class="border-0 bg-lgrey2 text-black rounded-2 px-2 py-2"
+                                                                    type="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false">
+                                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a class="dropdown-item"
+                                                                            href="{{ route('Admin.ViewDetail') }}"><img
+                                                                                src="{{ asset('img/img-1.png') }}"
+                                                                                alt="" class="me-2">View
+                                                                            Details</a></li>
+                                                                    <li><a class="dropdown-item" href="#"><img
+                                                                                src="{{ asset('img/edit.png') }}"
+                                                                                alt="" class="me-2">Edit</a>
+                                                                    </li>
+                                                                    <li><a class="dropdown-item" href="#"><img
+                                                                                src="{{ asset('img/img-2.png') }}"
+                                                                                alt="" class="me-2">Deactivate
+                                                                            Account</a></li>
+                                                                    <li><a class="dropdown-item" href="#"><img
+                                                                                src="{{ asset('img/img-3.png') }}"
+                                                                                alt="" class="me-2">Send
+                                                                            Message</a></li>
+                                                                </ul>
                                                             </div>
-                                                        </a>
-                                                    </td>
-                                                    <td class="font-md">DJ</td>
-                                                    <td class="font-md">Robinson</td>
-                                                    <td class="font-md">+21 91 999 999</td>
-                                                    <td>client@gmail.com</td>
-                                                    <td>usersexapleaddressher</td>
-                                                    <td>
-                                                        <div class="dropdown">
-                                                            <button
-                                                                class="border-0 bg-lgrey2 text-black rounded-2 px-2 py-2"
-                                                                type="button" data-bs-toggle="dropdown"
-                                                                aria-expanded="false">
-                                                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                                                            </button>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a class="dropdown-item"
-                                                                        href="{{ route('Admin.ViewDetail') }}"><img
-                                                                            src="{{ asset('img/img-1.png') }}"
-                                                                            alt="" class="me-2">View
-                                                                        Details</a></li>
-                                                                <li><a class="dropdown-item" href="#"><img
-                                                                            src="{{ asset('img/edit.png') }}"
-                                                                            alt="" class="me-2">Edit</a></li>
-                                                                <li><a class="dropdown-item" href="#"><img
-                                                                            src="{{ asset('img/img-2.png') }}"
-                                                                            alt="" class="me-2">Deactivate
-                                                                        Account</a></li>
-                                                                <li><a class="dropdown-item" href="#"><img
-                                                                            src="{{ asset('img/img-3.png') }}"
-                                                                            alt="" class="me-2">Send
-                                                                        Message</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
+
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <div
