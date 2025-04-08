@@ -96,15 +96,13 @@
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <li>
-                                                                        <a class="dropdown-item"
-                                                                            href=" }}">
+                                                                        <a class="dropdown-item" href=" }}">
                                                                             <i class="fa-solid fa-pencil me-2"></i>
                                                                             Edit
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a class="dropdown-item"
-                                                                            href="">
+                                                                        <a class="dropdown-item" href="">
                                                                             <i class="fa-solid fa-trash me-2"></i>
                                                                             Delete
                                                                         </a>
@@ -117,15 +115,13 @@
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a class="dropdown-item"
-                                                                            href=" }}">
+                                                                        <a class="dropdown-item" href=" }}">
                                                                             <i class="fa-solid fa-envelope me-2"></i>
                                                                             Send Message
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a class="dropdown-item"
-                                                                            href=" }}">
+                                                                        <a class="dropdown-item" href=" }}">
                                                                             <i class="fa-solid fa-ban me-2"></i>
                                                                             Deactivate Account
                                                                         </a>
