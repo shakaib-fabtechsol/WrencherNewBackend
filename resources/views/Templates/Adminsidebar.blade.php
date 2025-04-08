@@ -16,11 +16,7 @@
                                 alt="" class="sideicon">
                             <p class="mb-0">Dashboard</p>
                         </div>
-                        <i class="fas fa-chevron-down chevron-icon" data-target="#dashboardMenu"></i>
                     </a>
-                    <ul id="dashboardMenu" class="collapse mydropdown">
-                        <li><a class="sidelink" href="{{ route('Admin.WebsiteAnalytics') }}">Website Analytics</a></li>
-                    </ul>
                 </li>
                 <li class="my-2">
                     <a href="{{ route('Admin.BusinessManagement') }}"
