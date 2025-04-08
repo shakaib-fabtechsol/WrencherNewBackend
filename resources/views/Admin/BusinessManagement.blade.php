@@ -95,23 +95,41 @@
                                                                     <i class="fa-solid fa-ellipsis-vertical"></i>
                                                                 </button>
                                                                 <ul class="dropdown-menu">
-                                                                    <li><a class="dropdown-item"
-                                                                            href="{{ route('Admin.ViewDetail') }}"><img
-                                                                                src="{{ asset('img/img-1.png') }}"
-                                                                                alt="" class="me-2">View
-                                                                            Details</a></li>
-                                                                    <li><a class="dropdown-item" href="#"><img
-                                                                                src="{{ asset('img/edit.png') }}"
-                                                                                alt="" class="me-2">Edit</a>
+                                                                    <li>
+                                                                        <a class="dropdown-item"
+                                                                            href=" }}">
+                                                                            <i class="fa-solid fa-pencil me-2"></i>
+                                                                            Edit
+                                                                        </a>
                                                                     </li>
-                                                                    <li><a class="dropdown-item" href="#"><img
-                                                                                src="{{ asset('img/img-2.png') }}"
-                                                                                alt="" class="me-2">Deactivate
-                                                                            Account</a></li>
-                                                                    <li><a class="dropdown-item" href="#"><img
-                                                                                src="{{ asset('img/img-3.png') }}"
-                                                                                alt="" class="me-2">Send
-                                                                            Message</a></li>
+                                                                    <li>
+                                                                        <a class="dropdown-item"
+                                                                            href="">
+                                                                            <i class="fa-solid fa-trash me-2"></i>
+                                                                            Delete
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item"
+                                                                            href="{{ route('Admin.ViewDetail') }}">
+                                                                            <i class="fa-solid fa-eye me-2"></i>
+                                                                            View Details
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item"
+                                                                            href=" }}">
+                                                                            <i class="fa-solid fa-envelope me-2"></i>
+                                                                            Send Message
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item"
+                                                                            href=" }}">
+                                                                            <i class="fa-solid fa-ban me-2"></i>
+                                                                            Deactivate Account
+                                                                        </a>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </td>

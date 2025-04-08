@@ -41,13 +41,9 @@ Route::group(['middleware' => ['AdminMiddleware']], function () {
     Route::prefix('Admin')->group(function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('Dashboard', 'Dashboard')->name('Admin.Dashboard');
-            Route::get('WebsiteAnalytics', 'WebsiteAnalytics')->name('Admin.WebsiteAnalytics');
             Route::get('BusinessManagement', 'BusinessManagement')->name('Admin.BusinessManagement');
             Route::get('ViewDetail', 'ViewDetail')->name('Admin.ViewDetail');
-            Route::get('ScheduleCalendar', 'ScheduleCalendar')->name('Admin.ScheduleCalendar');
             Route::get('Chat', 'Chat')->name('Admin.Chat');
-            Route::get('Services', 'Services')->name('Admin.Services');
-            Route::get('AddNewService', 'AddNewService')->name('Admin.AddNewService');
 
             Route::get('Packages', 'Packages')->name('Admin.Packages');
             Route::get('AddNewPackage', 'AddNewPackage')->name('Admin.AddNewPackage');
