@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
 class BusinessUserController extends Controller
 {
 
@@ -19,7 +19,6 @@ class BusinessUserController extends Controller
     public function AddNewJob()
     {
         $customers = User::select('id','name','email')->where('businessUserId', Session::get('user')->id)->orderBy('id','desc')->get();
-        // dd($customers);
         return view('BusinessUser.AddNewJob', compact('customers'));
     }
 
@@ -293,4 +292,43 @@ class BusinessUserController extends Controller
         ], 200);
     }
 
+    public function CreateInventory(Request $request) {
+        $validator = Validator::make($request->all(), [
+            '*' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'errors' => $validator->errors()
+                ], 400);
+            }
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $request->all();
+        $data['businessUserId'] = auth()->user()->id;
+        $inventory = Inventory::create($data);
+
+        if ($request->wantsJson() || $request->is('api/*')) {
+            return response()->json([
+                'message' => 'Inventory added successfully!',
+                'inventory' => $inventory
+            ], 200);
+        }
+        return redirect()->back()->with('success','Inventory added successfully');
+    }
+
+    public function ShowInventory() {
+        $loginUser = auth()->user()->id;
+        $inventories = Inventory::where('businessUserId', $loginUser)->get();
+        if (request()->is('api/*')) {
+            return response()->json([
+                'inventories' => $inventories
+            ], 200);
+        }
+        return view('BusinessUser.Inventory', [
+            'inventories' => $inventories,
+        ]);
+    }
 }
