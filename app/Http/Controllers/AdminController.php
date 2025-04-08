@@ -7,6 +7,7 @@ use App\Models\Inventory;
 use App\Models\Packages;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -14,10 +15,6 @@ class AdminController extends Controller
     public function Dashboard()
     {
         return view('Admin.Dashboard');
-    }
-    public function WebsiteAnalytics()
-    {
-        return view('Admin.WebsiteAnalytics');
     }
 
     public function BusinessManagement()
@@ -209,26 +206,19 @@ class AdminController extends Controller
 
     public function Profile()
     {
-        return view('Admin.Profile');
+        $id = Auth::id();
+        $user = User::where('id', $id)->first();
+        return view('Admin.Profile', compact('user'));
     }
     public function EditProfile()
     {
-        return view('Admin.EditProfile');
+        $id = Auth::id();
+        $user = User::where('id', $id)->first();
+        return view('Admin.EditProfile', compact('user'));
     }
     public function CreateSubadmin()
     {
         return view('Admin.CreateSubadmin');
     }
 
-
-
-
-    public function Services()
-    {
-        return view('Admin.Services');
-    }
-    public function AddNewService()
-    {
-        return view('Admin.AddNewService');
-    }
 }

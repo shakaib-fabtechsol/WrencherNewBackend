@@ -32,27 +32,27 @@
                                 <div class="row">
                                     <div class="col-sm-6 mb-3">
                                         <label for="select-service" class="fw-medium ps-1">Admin Name</label>
-                                        <input type="text" id="promotion-title"
+                                        <input type="text" id="promotion-title" name=""
                                             class="w-100 bg-nblue border rounded-3 p-2" placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="promotion-title" class="ps-2 fw-medium">Phone Number</label>
-                                        <input type="text" id="promotion-title"
+                                        <input type="text" id="promotion-title" name=""
                                             class="w-100 bg-nblue border rounded-3 p-2" placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="promotion-type" class="fw-medium ps-1">Email</label>
-                                        <input type="email" id="promotion-title"
+                                        <input type="email" id="promotion-title" name=""
                                             class="w-100 bg-nblue border rounded-3 p-2" placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="discount-value" class="fw-medium ps-1">Address</label>
-                                        <input type="text" id="discount-value"
+                                        <input type="text" id="discount-value" name=""
                                             class="w-100 bg-nblue border rounded-3 p-2" placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="start-date" class="fw-medium ps-1">Street Address</label>
-                                        <input type="text" id="start-date"
+                                        <input type="text" id="start-date" name=""
                                             class="w-100 bg-nblue border rounded-3 p-2" placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
