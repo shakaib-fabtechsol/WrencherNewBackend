@@ -46,10 +46,15 @@ Route::group(['middleware' => ['AdminMiddleware']], function () {
             Route::get('ViewDetail', 'ViewDetail')->name('Admin.ViewDetail');
             Route::get('ScheduleCalendar', 'ScheduleCalendar')->name('Admin.ScheduleCalendar');
             Route::get('Chat', 'Chat')->name('Admin.Chat');
-            Route::get('Packages', 'Packages')->name('Admin.Packages');
-            Route::get('AddNewPackage', 'AddNewPackage')->name('Admin.AddNewPackage');
             Route::get('Services', 'Services')->name('Admin.Services');
             Route::get('AddNewService', 'AddNewService')->name('Admin.AddNewService');
+
+            Route::get('Packages', 'Packages')->name('Admin.Packages');
+            Route::get('AddNewPackage', 'AddNewPackage')->name('Admin.AddNewPackage');
+            Route::post('Savepackage', 'Savepackage')->name('Admin.Savepackage');
+            Route::get('DeletePackage/{id}', 'DeletePackage')->name('Admin.DeletePackage');
+            Route::get('EditPackage/{id}', 'EditPackage')->name('Admin.EditPackage');
+            Route::post('UpdatePackage/{id}', 'UpdatePackage')->name('Admin.UpdatePackage');
 
 
             Route::get('Industry', 'Industry')->name('Admin.Industry');

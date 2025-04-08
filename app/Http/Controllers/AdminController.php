@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Industry;
 use App\Models\Inventory;
+use App\Models\Packages;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -40,21 +41,67 @@ class AdminController extends Controller
 
     public function Packages()
     {
-        return view('Admin.Packages');
+        $packages = Packages::get();
+        return view('Admin.Packages', ['packages' => $packages]);
     }
     public function AddNewPackage()
     {
         return view('Admin.AddNewPackage');
     }
+    public function Savepackage(Request $request)
+    {
+        $request->validate([
+            'name'     => 'required|string|max:255',
+            'price'    => 'required|string|max:255',
+            'discount'    => 'required|string|max:255',
+        ]);
 
-    public function Services()
-    {
-        return view('Admin.Services');
+        $discounted = $request->price - ($request->price * $request->discount / 100);
+
+        $package = Packages::create([
+            'name'     => $request->name,
+            'price'     => $request->price,
+            'discount'     => $request->discount,
+            'discountedprice'     => $discounted
+        ]);
+        return redirect()->route('Admin.Packages');
     }
-    public function AddNewService()
+    public function EditPackage($id)
     {
-        return view('Admin.AddNewService');
+        $package = Packages::findOrFail($id);
+        return view('Admin.EditPackage', compact('package'));
     }
+    public function UpdatePackage(Request $request, $id)
+    {
+        $request->validate([
+            'name'     => 'required|string|max:255',
+            'price'    => 'required|numeric',
+            'discount' => 'required|numeric|min:0|max:100',
+        ]);
+
+        $package = Packages::findOrFail($id);
+
+        $discounted = $request->price - ($request->price * $request->discount / 100);
+
+        $package->update([
+            'name'             => $request->name,
+            'price'            => $request->price,
+            'discount'         => $request->discount,
+            'discountedprice'  => round($discounted, 2),
+        ]);
+
+        return redirect()->route('Admin.Packages')->with('success', 'Package updated successfully.');
+    }
+    public function DeletePackage($id)
+    {
+        $package = Packages::findOrFail($id);
+        $package->delete();
+
+        return redirect()->route('Admin.Packages')->with('success', 'Package deleted successfully.');
+    }
+
+
+
 
     public function Industry()
     {
@@ -143,5 +190,17 @@ class AdminController extends Controller
     public function CreateSubadmin()
     {
         return view('Admin.CreateSubadmin');
+    }
+
+
+
+
+    public function Services()
+    {
+        return view('Admin.Services');
+    }
+    public function AddNewService()
+    {
+        return view('Admin.AddNewService');
     }
 }

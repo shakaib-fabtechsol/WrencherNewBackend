@@ -3,7 +3,7 @@
 
 <head>
     @include('Templates.CssLinks')
-    <title>Dashboard</title>
+    <title>Packages</title>
 </head>
 
 <body>
@@ -43,54 +43,78 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row mt-3">
-                                    <div class="col-lg-8">
-                                        <div class="row gx-0 bg-white">
-                                            <div class="col-12">
-                                                <p
-                                                    class="bg-sky border-2 border-black border-bottom-0 text-white px-2 py-2 mb-0 opacity-75">
-                                                    Service Packages</p>
+                                <div class="bg-white px-3 py-2 mt-3 rounded-3 nav-tabs">
+                                    <div class="table-responsive reports-tbl mt-2">
+                                        <table class="table">
+                                            <thead>
+                                                <tr class="align-middle">
+                                                    <th class="font-semi">ID</th>
+                                                    <th class="font-semi">Title</th>
+                                                    <th class="font-semi">Price</th>
+                                                    <th class="font-semi">Discount % </th>
+                                                    <th class="font-semi">Discounted Price</th>
+                                                    <th class="font-semi">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($packages as $package)
+                                                    <tr class="align-middle">
+                                                        <td class="font-md">{{ $package->id ?? 'N/A' }}</td>
+                                                        <td class="font-md">{{ $package->name ?? 'N/A' }}</td>
+                                                        <td class="font-md">{{ $package->price ?? 'N/A' }}</td>
+                                                        <td class="font-md">{{ $package->discount ?? 'N/A' }} % </td>
+                                                        <td class="font-md">{{ $package->discountedprice ?? 'N/A' }}</td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button
+                                                                    class="border-0 bg-lgrey2 text-black rounded-2 px-2 py-2"
+                                                                    type="button" data-bs-toggle="dropdown"
+                                                                    aria-expanded="false">
+                                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu">
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="{{ route('Admin.EditPackage', $package->id) }}">
+                                                                            <i class="fa-solid fa-pencil me-2"></i>
+                                                                            Edit
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="dropdown-item" href="{{ route('Admin.DeletePackage', $package->id) }}">
+                                                                            <i class="fa-solid fa-trash me-2"></i>
+                                                                            Delete
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div
+                                            class="mt-3 d-inline-flex pagination-box shadow align-items-center justify-content-center border-1 rounded-3 py-2 px-3">
+                                            <div class="border-end border-2 py-1 pe-3">
+                                                <p class="mb-0">Showing 1 to 25 of 350 results</p>
                                             </div>
-                                            <div class="col-sm-6 col-md-4 border-2 border-black">
-                                                <p class="bg-danger2 fw-semibold mb-0 text-center fs-5 px-2 py-2">
-                                                    "A" - 5% Off
-                                                </p>
-                                                <p
-                                                    class="py-4 text-center border-top border-bottom border-2 border-black fw-semibold fs-1 text-black mb-0">
-                                                    $2,423
-                                                </p>
-                                                <div class="d-flex bg-danger2 px-3 justify-content-between py-2">
-                                                    <p class="fs-5 fw-semibold mb-0">Save</p>
-                                                    <p class="fs-5 fw-semibold mb-0">$128</p>
-                                                </div>
+                                            <div class="border-end border-2 px-3">
+                                                <select name="" id=""
+                                                    class="form-select focus-none shadow-none rounded-3">
+                                                    <option value="" selected disabled hidden>30 per page
+                                                    </option>
+                                                    <option value="">30 per page</option>
+                                                    <option value="">30 per page</option>
+                                                </select>
                                             </div>
-                                            <div
-                                                class="col-sm-6 col-md-4 border-2 border-black border-end-0 border-start-0">
-                                                <p class="bg-warning2 fw-semibold mb-0 text-center fs-5 px-2 py-2">
-                                                    "B" - 10% Off
-                                                </p>
-                                                <p
-                                                    class="py-4 text-center border-top border-bottom border-end-0 border-start-0 border-2 border-black fw-semibold fs-1 text-black mb-0">
-                                                    $3,375
-                                                </p>
-                                                <div class="d-flex bg-warning2 px-3 justify-content-between py-2">
-                                                    <p class="fs-5 fw-semibold mb-0">Save</p>
-                                                    <p class="fs-5 fw-semibold mb-0">$563</p>
-                                                </div>
+                                            <div class="border-end border-2 px-3">
+                                                <button
+                                                    class="border rounded-3 px-4 py-2 text-black bg-transparent">Previous</button>
                                             </div>
-                                            <div class="col-sm-6 col-md-4 border-2 border-black">
-                                                <p class="bg-success2 fw-semibold mb-0 text-center fs-5 px-2 py-2">
-                                                    "C" - 20% Off
-                                                </p>
-                                                <p
-                                                    class="py-4 text-center border-top border-bottom border-2 border-black fw-semibold fs-1 text-black mb-0">
-                                                    $3,600
-                                                </p>
-                                                <div class="d-flex bg-success2 px-3 justify-content-between py-2">
-                                                    <p class="fs-5 fw-semibold mb-0">Save</p>
-                                                    <p class="fs-5 fw-semibold mb-0">$1,125</p>
-                                                </div>
+                                            <div class="border-1 ps-3">
+                                                <button
+                                                    class="rounded-3 border-0 px-4 py-2 text-black bg-lblue">Next</button>
                                             </div>
                                         </div>
                                     </div>

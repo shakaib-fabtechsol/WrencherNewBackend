@@ -52,7 +52,7 @@
                         </div>
                     </a>
                 </li>
-                <li class="my-2">
+                {{-- <li class="my-2">
                     <a href="{{ route('Admin.Services') }}"
                         class="sidelink {{ request()->routeIs('Admin.Services') ? 'active' : '' }} d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
@@ -61,7 +61,7 @@
                             <p class="mb-0">Services</p>
                         </div>
                     </a>
-                </li>
+                </li> --}}
                 <li class="my-2">
                     <a href="{{ route('Admin.Industry') }}"
                         class="sidelink {{ request()->routeIs('Admin.Industry') ? 'active' : '' }} d-flex align-items-center justify-content-between">
