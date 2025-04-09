@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')
@@ -210,7 +211,6 @@
             </div>
         </div>
     </section>
-
 
     @include('Templates.Jslinks')
 

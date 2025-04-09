@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')

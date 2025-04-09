@@ -12,6 +12,7 @@
             swal("Good job!", "{{ session('success') }}", "success");
         </script>
     @endif
+    
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')

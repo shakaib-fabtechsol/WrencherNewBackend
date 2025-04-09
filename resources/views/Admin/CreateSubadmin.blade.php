@@ -12,6 +12,7 @@
 </head>
 
 <body class="bg-white">
+    
     <section class="my-3 mx-sm-3 mx-2 nav-bg rounded-4">
         <div class="p-3 border-bottom">
             <div class="d-flex align-items-center justify-content-between w-100">
@@ -70,7 +71,6 @@
             </div>
         </div>
     </section>
-
 
     @include('Templates.Jslinks')
 
@@ -148,7 +148,6 @@
             toggleSaveButton();
         });
     </script>
-
 
 </body>
 

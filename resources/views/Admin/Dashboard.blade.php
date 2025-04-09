@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')
@@ -31,8 +32,8 @@
                                     class="d-xl-flex pb-2 border-bottom border-1 align-items-center justify-content-between">
                                     <div class="my-2">
                                         @php
-                                             $name = Auth::user()->name;
-                                             $lastName = Auth::user()->lastName;
+                                            $name = Auth::user()->name;
+                                            $lastName = Auth::user()->lastName;
                                         @endphp
                                         <h1 class="fs-4 font-bold">
                                             Good morning, {{ $name }}{{ ' ' }}{{ $lastName }}

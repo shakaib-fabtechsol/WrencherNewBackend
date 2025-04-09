@@ -7,6 +7,7 @@
 </head>
 
 <body class="bg-white">
+    
     <section class="my-3 mx-sm-3 mx-2 nav-bg rounded-4">
         <div class="p-3 border-bottom">
             <div class="d-flex align-items-center justify-content-between w-100">
@@ -68,60 +69,8 @@
         </div>
     </section>
 
-    <script>
-        let map;
-        let autocomplete;
-
-        function initAutocomplete() {
-            // Initialize the map
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: -34.397,
-                    lng: 150.644
-                }, // Default center
-                zoom: 8 // Default zoom
-            });
-
-            // Initialize the autocomplete functionality
-            var input = document.getElementById('autocomplete');
-            autocomplete = new google.maps.places.Autocomplete(input, {
-                types: ['geocode'] // Restrict the types of predictions.
-            });
-
-            autocomplete.addListener('place_changed', function() {
-                var place = autocomplete.getPlace();
-
-                if (!place.geometry) {
-                    console.log("No details available for input: '" + place.name + "'");
-                    return;
-                }
-
-                // Get the address components and fill the city and state fields.
-                var addressComponents = place.address_components;
-                var city = '';
-                var state = '';
-
-                for (var i = 0; i < addressComponents.length; i++) {
-                    var component = addressComponents[i];
-                    if (component.types.includes('locality')) {
-                        city = component.long_name;
-                    }
-                    if (component.types.includes('administrative_area_level_1')) {
-                        state = component.short_name; // or use component.long_name for full state name
-                    }
-                }
-
-                // Center the map on the selected place
-                if (place.geometry.viewport) {
-                    map.fitBounds(place.geometry.viewport);
-                } else {
-                    map.setCenter(place.geometry.location);
-                    map.setZoom(17);
-                }
-            });
-        }
-    </script>
     @include('Templates.Jslinks')
+
 </body>
 
 </html>

@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')
@@ -284,8 +285,8 @@
         </div>
     </section>
 
-
     @include('Templates.Jslinks')
+
     <script>
         const data = {
             labels: ['', '', ''],
@@ -460,6 +461,7 @@
         const ctx3 = document.getElementById('profitChart').getContext('2d');
         new Chart(ctx3, config3);
     </script>
+    
 </body>
 
 </html>
