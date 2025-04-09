@@ -66,6 +66,11 @@
                                                                     </p>
                                                                 </label>
                                                             </div>
+                                                            <div class=" mt-3">
+                                                                <img id="imgPreview" src="#" alt="Image Preview"
+                                                                    class="img-fluid rounded d-none bg-white py-2"
+                                                                    style="max-height: 200px;">
+                                                            </div>
                                                             @error('img')
                                                                 <span class="text-danger">{{ $message }}</span>
                                                             @enderror
@@ -96,26 +101,36 @@
             </div>
         </div>
     </section>
+
+    @include('Templates.Jslinks')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const fileInput = document.getElementById('picture-c');
+            const fileInput = document.getElementById('img');
             const fileNameElement = document.querySelector('.filename');
+            const preview = document.getElementById('imgPreview');
 
             fileInput.addEventListener('change', function() {
-                if (fileInput.files.length > 0) {
-                    let fileName = fileInput.files[0].name;
-                    if (fileName.length > 15) {
-                        fileName = fileName.substring(0, 12) + '...';
+                if (fileInput.files && fileInput.files[0]) {
+                    const file = fileInput.files[0];
+                    let name = file.name;
+                    if (name.length > 15) {
+                        name = name.substring(0, 12) + '...';
                     }
-
-                    fileNameElement.textContent = fileName;
+                    fileNameElement.textContent = name;
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        preview.src = e.target.result;
+                        preview.classList.remove('d-none');
+                    };
+                    reader.readAsDataURL(file);
                 } else {
                     fileNameElement.textContent = 'No file chosen';
+                    preview.classList.add('d-none');
                 }
             });
         });
     </script>
-    @include('Templates.Jslinks')
+
 </body>
 
 </html>
