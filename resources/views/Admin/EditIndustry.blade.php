@@ -25,7 +25,8 @@
         <div class="p-2">
             <div class="right-bottom1">
                 <div class="container-fluid h-100">
-                    <form method="post" action="{{ route('Admin.UpdateIndustry', $industry->id) }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('Admin.UpdateIndustry', $industry->id) }}"
+                        enctype="multipart/form-data">
                         @csrf
                         <h4 class="mb-0">Edit Industry</h4>
                         <div class="row mt-3 pe-2">

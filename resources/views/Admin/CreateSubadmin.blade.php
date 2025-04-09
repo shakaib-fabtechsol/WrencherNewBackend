@@ -3,7 +3,7 @@
 
 <head>
     @include('Templates.CssLinks')
-    <title>Add Promotion</title>
+    <title>Add Sub Admin</title>
     <style>
         #ferror {
             display: none;
@@ -139,13 +139,13 @@
             if (!hasFields) {
                 fieldError.style.display = "block";
             } else {
-                fieldError.style.display = "none"; 
+                fieldError.style.display = "none";
             }
         }
         const form = document.getElementById("dynamicForm");
         form.addEventListener("submit", function(e) {
             e.preventDefault();
-            toggleSaveButton(); 
+            toggleSaveButton();
         });
     </script>
 

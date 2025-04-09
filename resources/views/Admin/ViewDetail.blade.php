@@ -3,7 +3,7 @@
 
 <head>
     @include('Templates.CssLinks')
-    <title>View Details</title>
+    <title>Business Detail</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <div class="col-6">
                             <div class="d-flex align-items-center justify-content-start">
-                                <span class="hding mb-0 blu fs-4 font-j fw-semibold">Dashboard</span>
+                                <span class="hding mb-0 blu fs-4 font-j fw-semibold">Business Detail</span>
                             </div>
                         </div>
                         <div class="col-6">

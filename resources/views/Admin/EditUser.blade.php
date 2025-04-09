@@ -33,9 +33,8 @@
                                 <div class="row">
                                     <div class="col-sm-6 mb-3">
                                         <label for="First" class="fw-medium ps-1">First Name</label>
-                                        <input type="text" id="First" name="name"
-                                            value="{{ $user->name }}" class="w-100 bg-nblue border rounded-3 p-2"
-                                            placeholder="Type here">
+                                        <input type="text" id="First" name="name" value="{{ $user->name }}"
+                                            class="w-100 bg-nblue border rounded-3 p-2" placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="Last" class="fw-medium ps-1">Last Name</label>

@@ -25,8 +25,7 @@
         <div class="p-2">
             <div class="right-bottom1">
                 <div class="container-fluid h-100">
-                    <form method="post" action="{{route('Admin.SaveIndustry')}}"
-                        enctype="multipart/form-data">
+                    <form method="post" action="{{ route('Admin.SaveIndustry') }}" enctype="multipart/form-data">
                         @csrf
                         <h4 class="mb-0">Add New Industry</h4>
                         <div class="row mt-3 pe-2">
@@ -74,7 +73,8 @@
                                             </div>
                                             <div class="d-flex align-items-center mt-lg-0 mt-5">
                                                 <div>
-                                                    <a href="{{ route('Admin.Industry') }}" class="text-decoration-none text-dark">
+                                                    <a href="{{ route('Admin.Industry') }}"
+                                                        class="text-decoration-none text-dark">
                                                         <div class="border rounded-3 py-2 px-4">Cancel</div>
                                                     </a>
                                                 </div>

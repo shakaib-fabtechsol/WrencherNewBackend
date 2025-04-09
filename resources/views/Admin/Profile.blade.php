@@ -15,7 +15,7 @@
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <div class="col-6">
                             <div class="d-flex align-items-center justify-content-start">
-                                <h3 class="hding mb-0 dark-blue">Profile</h3>
+                                <span class="hding mb-0 blu fs-4 font-j fw-semibold">Profile</span>
                             </div>
                         </div>
                         <div class="col-6">

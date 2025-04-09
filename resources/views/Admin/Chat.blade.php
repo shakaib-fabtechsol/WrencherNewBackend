@@ -15,9 +15,7 @@
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <div class="col-6">
                             <div class="d-flex align-items-center justify-content-start">
-                                <span class="sky fs-4 fw-medium">Chat</span>
-                                <i class="fas fa-chevron-right mx-2 fs-6"></i>
-                                <span class="fs-6 mt-1">Internal Chat</span>
+                                <span class="hding mb-0 blu fs-4 font-j fw-semibold">Chat</span>
                             </div>
                         </div>
                         <div class="col-6">

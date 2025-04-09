@@ -32,18 +32,19 @@
                                 <div class="row">
                                     <div class="col-sm-6 mb-3">
                                         <label for="pkg_name" class="ps-2 fw-semibold">Package Name</label>
-                                        <input type="text" name="name" id="pkg_name" class="w-100 bg-white border rounded-3 p-2"
+                                        <input type="text" name="name" id="pkg_name"
+                                            class="w-100 bg-white border rounded-3 p-2"
                                             placeholder="Enter package name">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="price" class="ps-2 fw-semibold">Package Price</label>
-                                        <input type="number" name="price" id="price" class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Enter price">
+                                        <input type="number" name="price" id="price"
+                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Enter price">
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="discount" class="ps-2 fw-semibold">Discount</label>
-                                        <input type="number" name="discount" id="discount" class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Enter discount">
+                                        <input type="number" name="discount" id="discount"
+                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Enter discount">
                                     </div>
                                 </div>
                                 <div class="row mt-5 mb-2">
