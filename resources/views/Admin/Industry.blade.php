@@ -3,7 +3,7 @@
 
 <head>
     @include('Templates.CssLinks')
-    <title>Industries Management</title>
+    <title>Industries</title>
 </head>
 
 <body>
@@ -18,9 +18,14 @@
             <div class="right">
                 <div class="right-top input-shadow">
                     <div class="d-flex align-items-center justify-content-between w-100">
-                        <div class="d-flex align-items-center justify-content-start">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center justify-content-start">
+                                <span class="hding mb-0 blu fs-4 font-j fw-semibold">Industries</span>
+                            </div>
                         </div>
-                        @include('Templates.AdminNavbar')
+                        <div class="col-6">
+                            @include('Templates.AdminNavbar')
+                        </div>
                     </div>
                 </div>
                 <div class="right-bottom">
@@ -30,7 +35,7 @@
                                 <div class="d-xl-flex align-items-center justify-content-between">
                                     <div>
                                         <h1 class="fs-3 font-semi">
-                                            Industries Management
+                                            Industries
                                         </h1>
                                     </div>
                                     <div class="d-lg-flex justify-content-end align-items-center mt-3">

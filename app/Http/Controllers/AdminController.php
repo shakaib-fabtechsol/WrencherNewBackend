@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     public function BusinessManagement()
     {
-        $user = User::where('role', 1)->get();
+        $user = User::where('role', 1)->paginate(6);
         return view('Admin.BusinessManagement', ['users' => $user]);
     }
     public function EditUser($id)
