@@ -122,7 +122,7 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('Notifications', 'Notifications')->name('BusinessUser.Notifications');
 
             Route::post('CreateInventory', 'CreateInventory')->name('BusinessUser.CreateInventory');
-            Route::get('ShowInventory', 'ShowInventory')->name('BusinessUser.ShowInventory');
+            Route::get('Inventory', 'Inventory')->name('BusinessUser.Inventory');
         });
     });
 });

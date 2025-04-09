@@ -12,7 +12,7 @@ class Inventory extends Model
         'description',
         'type',
         'date',
-        'qunatity',
+        'quantity',
         'trackingStatus',
     ];
 }

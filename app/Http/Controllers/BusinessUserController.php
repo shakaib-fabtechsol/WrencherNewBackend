@@ -204,7 +204,27 @@ class BusinessUserController extends Controller
 
     public function Inventory()
     {
-        return view('BusinessUser.Inventory');
+        $loginUser = auth()->user()->id;
+        $inventories = Inventory::where('businessUserId', $loginUser)->get();
+        $outOfStock = Inventory::where('businessUserId', $loginUser)
+        ->where('quantity', 0)
+        ->get();
+        $lowStock = Inventory::where('businessUserId', $loginUser)
+        ->where('quantity', '<', 10)
+        ->where('quantity', '>', 0)
+        ->get();
+        if (request()->is('api/*')) {
+            return response()->json([
+                'inventories' => $inventories,
+                'out_of_stock' => $outOfStock,
+                'low_stock' => $lowStock,
+            ], 200);
+        }
+        return view('BusinessUser.Inventory', [
+            'inventories' => $inventories,
+            'outOfStock' => $outOfStock,
+            'lowStock' => $lowStock,
+        ]);
     }
 
     public function AddNewInventory()
@@ -316,19 +336,7 @@ class BusinessUserController extends Controller
                 'inventory' => $inventory
             ], 200);
         }
-        return redirect()->back()->with('success','Inventory added successfully');
+        return redirect()->route('BusinessUser.Inventory')->with('success','Inventory added successfully');
     }
 
-    public function ShowInventory() {
-        $loginUser = auth()->user()->id;
-        $inventories = Inventory::where('businessUserId', $loginUser)->get();
-        if (request()->is('api/*')) {
-            return response()->json([
-                'inventories' => $inventories
-            ], 200);
-        }
-        return view('BusinessUser.Inventory', [
-            'inventories' => $inventories,
-        ]);
-    }
 }

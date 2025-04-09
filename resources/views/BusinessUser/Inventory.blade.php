@@ -116,356 +116,59 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="align-middle">
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">10</td>
-                                                            <td class="font-md">High</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
+                                                        @foreach ($inventories as $inventory)
+                                                            <tr class="align-middle">
+                                                                <td class="font-md">{{ $inventory->name ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $inventory->description ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $inventory->type ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $inventory->date ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $inventory->quantity ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $inventory->trackingStatus ?? 'N/A' }}</td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div>
+                                                                            <div class="dropdown">
+                                                                                <button
+                                                                                    class="btn btn-light dropdown-toggle p-2 rounded-3"
+                                                                                    type="button" id="dropdownMenuButton"
+                                                                                    data-bs-toggle="dropdown"
+                                                                                    aria-expanded="false">
+                                                                                    <i
+                                                                                        class="fa-solid fa-pen text-dark"></i>
+                                                                                </button>
+                                                                                <ul class="dropdown-menu"
+                                                                                    aria-labelledby="dropdownMenuButton">
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Schedule </a>
+                                                                                    </li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Invoice</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">View Log of SMS
+                                                                                            and
+                                                                                            Email</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Check Estimate
+                                                                                            View
+                                                                                            Status</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Request
+                                                                                            Deposit</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="ms-2">
+                                                                            <a href="#"
+                                                                                class="text-center inline-block trash-b p-2 rounded-3"><i
+                                                                                    class="fa-solid fa-trash text-dark"></i></a>
                                                                         </div>
                                                                     </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="align-middle">
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">10</td>
-                                                            <td class="font-md">High</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="align-middle">
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">10</td>
-                                                            <td class="font-md">High</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="align-middle">
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">10</td>
-                                                            <td class="font-md">High</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="align-middle">
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">10</td>
-                                                            <td class="font-md">High</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="align-middle">
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">10</td>
-                                                            <td class="font-md">High</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr class="align-middle">
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">10</td>
-                                                            <td class="font-md">High</td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                       
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -511,276 +214,62 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">03</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
+                                                        @foreach ($lowStock as $lowSt)
+                                                            <tr>
+                                                                <td class="font-md">{{ $lowSt->name ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $lowSt->description ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $lowSt->type ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $lowSt->date ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $lowSt->quantity ?? 'N/A' }}</td>
+                                                                <td class="font-md">
+                                                                    <p
+                                                                        class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
+                                                                        Low Stock Item</p>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div>
+                                                                            <div class="dropdown">
+                                                                                <button
+                                                                                    class="btn btn-light dropdown-toggle p-2 rounded-3"
+                                                                                    type="button" id="dropdownMenuButton"
+                                                                                    data-bs-toggle="dropdown"
+                                                                                    aria-expanded="false">
+                                                                                    <i
+                                                                                        class="fa-solid fa-pen text-dark"></i>
+                                                                                </button>
+                                                                                <ul class="dropdown-menu"
+                                                                                    aria-labelledby="dropdownMenuButton">
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Schedule </a>
+                                                                                    </li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Invoice</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">View Log of SMS
+                                                                                            and
+                                                                                            Email</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Check Estimate
+                                                                                            View
+                                                                                            Status</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Request
+                                                                                            Deposit</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="ms-2">
+                                                                            <a href="#"
+                                                                                class="text-center inline-block trash-b p-2 rounded-3"><i
+                                                                                    class="fa-solid fa-trash text-dark"></i></a>
                                                                         </div>
                                                                     </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">03</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">03</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">03</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">03</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -826,276 +315,62 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">0</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
+                                                        @foreach ($outOfStock as $outOfSt)
+                                                            <tr>
+                                                                <td class="font-md">{{ $outOfSt->name ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $outOfSt->description ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $outOfSt->type ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $outOfSt->date ?? 'N/A' }}</td>
+                                                                <td class="font-md">{{ $outOfSt->quantity ?? 'N/A' }}</td>
+                                                                <td class="font-md">
+                                                                    <p
+                                                                        class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
+                                                                        Low Stock Item</p>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="d-flex align-items-center">
+                                                                        <div>
+                                                                            <div class="dropdown">
+                                                                                <button
+                                                                                    class="btn btn-light dropdown-toggle p-2 rounded-3"
+                                                                                    type="button" id="dropdownMenuButton"
+                                                                                    data-bs-toggle="dropdown"
+                                                                                    aria-expanded="false">
+                                                                                    <i
+                                                                                        class="fa-solid fa-pen text-dark"></i>
+                                                                                </button>
+                                                                                <ul class="dropdown-menu"
+                                                                                    aria-labelledby="dropdownMenuButton">
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Schedule </a>
+                                                                                    </li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Invoice</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">View Log of SMS
+                                                                                            and
+                                                                                            Email</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Check Estimate
+                                                                                            View
+                                                                                            Status</a></li>
+                                                                                    <li><a class="dropdown-item"
+                                                                                            href="#">Request
+                                                                                            Deposit</a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="ms-2">
+                                                                            <a href="#"
+                                                                                class="text-center inline-block trash-b p-2 rounded-3"><i
+                                                                                    class="fa-solid fa-trash text-dark"></i></a>
                                                                         </div>
                                                                     </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">0</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">0</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">0</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="font-md">AC Pipes</td>
-                                                            <td class="font-md">Product description</td>
-                                                            <td class="font-md">Electronics</td>
-                                                            <td class="font-md">09/03/2024</td>
-                                                            <td class="font-md">0</td>
-                                                            <td class="font-md">
-                                                                <p
-                                                                    class="rounded-3 d-inline-block px-3 py-2 mb-0 low-stock">
-                                                                    Low Stock Item</p>
-                                                            </td>
-                                                            <td>
-                                                                <div class="d-flex align-items-center">
-                                                                    <div>
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-light dropdown-toggle p-2 rounded-3"
-                                                                                type="button" id="dropdownMenuButton"
-                                                                                data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                <i
-                                                                                    class="fa-solid fa-pen text-dark"></i>
-                                                                            </button>
-                                                                            <ul class="dropdown-menu"
-                                                                                aria-labelledby="dropdownMenuButton">
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Schedule </a>
-                                                                                </li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Invoice</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">View Log of SMS
-                                                                                        and
-                                                                                        Email</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Check Estimate
-                                                                                        View
-                                                                                        Status</a></li>
-                                                                                <li><a class="dropdown-item"
-                                                                                        href="#">Request
-                                                                                        Deposit</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="ms-2">
-                                                                        <a href="#"
-                                                                            class="text-center inline-block trash-b p-2 rounded-3"><i
-                                                                                class="fa-solid fa-trash text-dark"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
