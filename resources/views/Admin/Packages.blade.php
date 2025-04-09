@@ -7,6 +7,12 @@
 </head>
 
 <body>
+    
+    @if (session('success'))
+        <script>
+            swal("Good job!", "{{ session('success') }}", "success");
+        </script>
+    @endif
 
     <section>
         <div class="main">
@@ -106,7 +112,8 @@
                                                 <div class="border-end pe-3">
                                                     <p class="mb-0">
                                                         Showing {{ $packages->firstItem() }} to
-                                                        {{ $packages->lastItem() }} of {{ $packages->total() }} results
+                                                        {{ $packages->lastItem() }} of {{ $packages->total() }}
+                                                        results
                                                     </p>
                                                 </div>
                                                 <div class="border-end px-3">

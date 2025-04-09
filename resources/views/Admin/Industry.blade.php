@@ -7,11 +7,18 @@
 </head>
 
 <body>
+
     @if (session('success'))
         <script>
             swal("Good job!", "{{ session('success') }}", "success");
         </script>
     @endif
+    @if (session('delete'))
+        <script>
+            swal("Good job!", "{{ session('delete') }}", "success");
+        </script>
+    @endif  
+    
     
     <section>
         <div class="main">
@@ -38,6 +45,7 @@
                                         <h1 class="fs-3 font-semi">
                                             Industries
                                         </h1>
+                                    
                                     </div>
                                     <div class="d-lg-flex justify-content-end align-items-center mt-3">
                                         <div class="d-sm-flex justify-content-end">

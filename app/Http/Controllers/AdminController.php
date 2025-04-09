@@ -92,7 +92,7 @@ class AdminController extends Controller
             'discount'     => $request->discount,
             'discountedprice'     => $discounted
         ]);
-        return redirect()->route('Admin.Packages');
+        return redirect()->route('Admin.Packages')->with('success', 'Packages saved successfully.');
     }
     public function EditPackage($id)
     {
@@ -153,7 +153,7 @@ class AdminController extends Controller
             'name'     => $request->name,
             'img'    => $photo_name,
         ]);
-        return redirect()->route('Admin.Industry');
+        return redirect()->route('Admin.Industry')->with('success', 'Industry saved successfully.');
     }
     public function DeleteIndustry($id)
     {
@@ -209,12 +209,6 @@ class AdminController extends Controller
         $id = Auth::id();
         $user = User::where('id', $id)->first();
         return view('Admin.Profile', compact('user'));
-    }
-    public function EditProfile()
-    {
-        $id = Auth::id();
-        $user = User::where('id', $id)->first();
-        return view('Admin.EditProfile', compact('user'));
     }
     public function CreateSubadmin()
     {
