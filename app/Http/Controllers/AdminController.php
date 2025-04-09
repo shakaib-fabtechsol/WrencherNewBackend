@@ -130,7 +130,7 @@ class AdminController extends Controller
 
     public function Industry()
     {
-        $industries = Industry::get();
+        $industries = Industry::paginate(6);
         return view('Admin.Industry', ['industries' => $industries]);
     }
     public function AddNewIndustry()

@@ -1299,6 +1299,10 @@ select:focus {
     background-color: #1a83f5;
     color: #ffffff;
 }
+.tblheight{
+    height: calc(100dvh - 165px);
+    
+}
 /* ----------chat end ------------- */
 @media screen and (min-width: 1441px) {
     .right-c {
