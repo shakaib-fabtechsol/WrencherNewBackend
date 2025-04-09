@@ -69,7 +69,7 @@ class AdminController extends Controller
 
     public function Packages()
     {
-        $packages = Packages::get();
+        $packages = Packages::paginate(6);
         return view('Admin.Packages', ['packages' => $packages]);
     }
     public function AddNewPackage()

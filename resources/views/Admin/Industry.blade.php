@@ -29,22 +29,11 @@
                             <div class="container-fluid">
                                 <div class="d-xl-flex align-items-center justify-content-between">
                                     <div>
-                                        <h1 class="fs-4 fw-semibold">
+                                        <h1 class="fs-3 font-semi">
                                             Industries Management
                                         </h1>
-
                                     </div>
-                                    <div
-                                        class="d-flex flex-column flex-lg-row justify-content-end align-items-stretch mt-3 mt-xl-0">
-                                        <div
-                                            class="d-flex my-2 me-lg-2  my-lg-0 justify-content-between border-1 rounded-2 bg-white">
-                                            <input type="search"
-                                                class="border-0 w-100 px-3 py-2 bg-transparent focus-none"
-                                                placeholder="Search Job">
-                                            <span class="d-flex align-items-center bg-grey text-white">
-                                                <i class="fas fa-search px-3 py-2 rounded-2"></i>
-                                            </span>
-                                        </div>
+                                    <div class="d-lg-flex justify-content-end align-items-center mt-3">
                                         <div class="d-sm-flex justify-content-end">
                                             <a href="{{ route('Admin.AddNewIndustry') }}"
                                                 class="mbl-100 d-flex justify-content-center align-items-center mt-3 mt-lg-0 rounded-2 px-4 text-nowrap py-2 bg-sky text-white text-decoration-none">
@@ -144,10 +133,15 @@
                                         </div>
                                     </div>
                                 @else
-                                    <div class="alert alert-danger d-flex align-items-center justify-content-center my-4"
-                                        role="alert">
-                                        <i class="fa-solid fa-circle-exclamation text-danger me-2"></i>
-                                        <p class="mb-0 text-danger">No Industries Available.</p>
+                                    <div class="d-flex justify-content-center">
+                                        <div
+                                            class="d-flex flex-column align-items-center justify-content-center p-5 rounded mt-5 altertclass">
+                                            <i class="fa-solid fa-circle-info fa-3x text-primary mb-3"></i>
+                                            <h4 class="text-primary fw-bold mb-2">No Industries Available.</h4>
+                                            <p class="mb-0 text-muted">
+                                                You currently have no industries, please add a new industry.
+                                            </p>
+                                        </div>
                                     </div>
                                 @endif
                             </div>
