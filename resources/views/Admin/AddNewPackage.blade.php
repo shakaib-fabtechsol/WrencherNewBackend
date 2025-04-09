@@ -33,18 +33,29 @@
                                     <div class="col-sm-6 mb-3">
                                         <label for="pkg_name" class="ps-2 fw-semibold">Package Name</label>
                                         <input type="text" name="name" id="pkg_name"
-                                            class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Enter package name">
+                                            class="w-100 bg-white border rounded-3 p-2 @error('name') is-invalid @enderror"
+                                            value="{{ old('name') }}" placeholder="Enter package name">
+                                        @error('name')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="price" class="ps-2 fw-semibold">Package Price</label>
                                         <input type="number" name="price" id="price"
-                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Enter price">
+                                            class="w-100 bg-white border rounded-3 p-2 @error('price') is-invalid @enderror"
+                                            value="{{ old('price') }}" placeholder="Enter price">
+                                        @error('price')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-sm-6 mb-3">
                                         <label for="discount" class="ps-2 fw-semibold">Discount</label>
                                         <input type="number" name="discount" id="discount"
-                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Enter discount">
+                                            class="w-100 bg-white border rounded-3 p-2 @error('discount') is-invalid @enderror"
+                                            value="{{ old('discount') }}" placeholder="Enter discount">
+                                        @error('discount')
+                                            <div class="text-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mt-5 mb-2">
