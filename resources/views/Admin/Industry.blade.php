@@ -12,13 +12,7 @@
         <script>
             swal("Good job!", "{{ session('success') }}", "success");
         </script>
-    @endif
-    @if (session('delete'))
-        <script>
-            swal("Good job!", "{{ session('delete') }}", "success");
-        </script>
-    @endif  
-    
+    @endif 
     
     <section>
         <div class="main">
