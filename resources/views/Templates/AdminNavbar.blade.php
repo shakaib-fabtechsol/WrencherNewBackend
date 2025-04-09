@@ -7,8 +7,9 @@
         <div class="dropdown d-flex justify-content-between w-100 align-items-center" bis_skin_checked="1">
             <a class="mb-0 text-decoration-none d-flex align-items-end">
                 <div class="ms-2 d-none d-sm-block me-2 me-sm-0" bis_skin_checked="1">
-                    <h6 class="text-center mb-0 l-h font-md text-dark">{{ $sharedUser->name }}</h6>
-                    <p class="mt-1 font-12 fw-semibold mb-0 text-secondary ">Super
+                    <h6 class="text-center mb-0 l-h font-md text-dark">
+                        {{ $sharedUser->name }}{{ ' ' }}{{ $sharedUser->lastName }}</h6>
+                    <p class="mt-1 font-12 fw-semibold mb-0 text-secondary text-center ">
                         Admin</p>
                 </div>
                 <div class="position-relative" bis_skin_checked="1">

@@ -3,10 +3,11 @@
 
 <head>
     @include('Templates.CssLinks')
-    <title>New Contract</title>
+    <title>Notifications</title>
 </head>
 
 <body>
+
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')
@@ -15,9 +16,7 @@
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <div class="col-6">
                             <div class="d-flex align-items-center justify-content-start">
-                                <h3 class="hding mb-0">
-                                    <span class="sky fs-4 fw-medium">Notifications</span>
-                                </h3>
+                                <span class="hding mb-0 blu fs-4 font-j fw-semibold">Notifications</span>
                             </div>
                         </div>
                         <div class="col-6">
@@ -212,7 +211,6 @@
             </div>
         </div>
     </section>
-
 
     @include('Templates.Jslinks')
 

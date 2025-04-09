@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')
@@ -30,8 +31,12 @@
                                 <div
                                     class="d-xl-flex pb-2 border-bottom border-1 align-items-center justify-content-between">
                                     <div class="my-2">
+                                        @php
+                                            $name = Auth::user()->name;
+                                            $lastName = Auth::user()->lastName;
+                                        @endphp
                                         <h1 class="fs-4 font-bold">
-                                            Good morning, Jake Zophres.
+                                            Good morning, {{ $name }}{{ ' ' }}{{ $lastName }}
                                         </h1>
                                         <p class="mb-0">Here’s how The Repair Guy Services is doing today.</p>
                                     </div>

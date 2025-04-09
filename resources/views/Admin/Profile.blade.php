@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    
     <section>
         <div class="main">
             @include('Templates.Adminsidebar')
@@ -15,7 +16,7 @@
                     <div class="d-flex align-items-center justify-content-between w-100">
                         <div class="col-6">
                             <div class="d-flex align-items-center justify-content-start">
-                                <h3 class="hding mb-0 dark-blue">Profile</h3>
+                                <span class="hding mb-0 blu fs-4 font-j fw-semibold">Profile</span>
                             </div>
                         </div>
                         <div class="col-6">
@@ -45,8 +46,8 @@
                                     <div class="position-relative pe-2">
                                         <div class="d-flex align-items-end ">
                                             <div class="profile-edit shadow me-2">
-                                                @if ($sharedUser->img != null)
-                                                    <img src="{{ asset('img/' . $sharedUser->img) }}" alt=""
+                                                @if ($user->img != null)
+                                                    <img src="{{ asset('img/' . $user->img) }}" alt=""
                                                         class="f-img">
                                                 @else
                                                     <img src="{{ asset('img/user.png') }}" alt=""
@@ -54,49 +55,26 @@
                                                 @endif
                                             </div>
                                             <div class="ps-2">
-                                                <h6 class="sky-c fs-5 fw-semibold">{{ $sharedUser->name }}</h6>
+                                                <h6 class="sky-c fs-5 fw-semibold">{{ $user->name }}</h6>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row mt-3 pt-3 border-bottom pe-2">
                                         <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
                                             <h6 class="mb-0 small fw-medium">Admin Name</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">{{ $sharedUser->name }}
-                                                {{ $sharedUser->lastName }}</p>
+                                            <p class="sky-c mb-0 fs-6 fw-semibold">{{ $user->name }}
+                                                {{ $user->lastName }}</p>
                                         </div>
-                                        {{-- <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
-                                            <h6 class="mb-0 small fw-medium">Phone Number</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">+21 090 909 9090</p>
-                                        </div> --}}
                                         <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
                                             <h6 class="mb-0 small fw-medium">Email</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">{{ $sharedUser->email }}</p>
+                                            <p class="sky-c mb-0 fs-6 fw-semibold">{{ $user->email }}</p>
                                         </div>
                                         <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
                                             <h6 class="mb-0 small fw-medium">Address</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">{{ $sharedUser->location ?? 'Null' }}
+                                            <p class="sky-c mb-0 fs-6 fw-semibold">{{ $user->location ?? 'Null' }}
                                             </p>
                                         </div>
                                     </div>
-                                    {{-- <div class="row mt-3 border-bottom pe-2">
-                                        <h5>Address Details</h5>
-                                        <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
-                                            <h6 class="mb-0 small fw-medium">Street Address</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">locationdetailshere</p>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
-                                            <h6 class="mb-0 small fw-medium">City Address</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">locationdetailshere</p>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
-                                            <h6 class="mb-0 small fw-medium">State Address</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">locationdetailshere</p>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-2">
-                                            <h6 class="mb-0 small fw-medium">Postal Code</h6>
-                                            <p class="sky-c mb-0 fs-6 fw-semibold">locationdetailshere</p>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>

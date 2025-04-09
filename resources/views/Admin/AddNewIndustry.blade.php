@@ -3,10 +3,11 @@
 
 <head>
     @include('Templates.CssLinks')
-    <title>add new Industry</title>
+    <title>Add Industry</title>
 </head>
 
 <body class="bg-white">
+
     <section class="my-3 mx-sm-3 mx-2 nav-bg rounded-4">
         <div class="p-3 border-bottom">
             <div class="d-flex align-items-center justify-content-between w-100">
@@ -25,8 +26,7 @@
         <div class="p-2">
             <div class="right-bottom1">
                 <div class="container-fluid h-100">
-                    <form method="post" action="{{ route('Admin.StoreIndustry') }}" class=""
-                        enctype="multipart/form-data">
+                    <form method="post" action="{{ route('Admin.SaveIndustry') }}" enctype="multipart/form-data">
                         @csrf
                         <h4 class="mb-0">Add New Industry</h4>
                         <div class="row mt-3 pe-2">
@@ -40,49 +40,49 @@
                                                         Industry Detail</h6>
                                                     <div class="row flex-sm-row flex-column-reverse pe-0">
                                                         <div class="col-sm-6 mt-sm-0 mt-3 pe-0">
-                                                            <div>
-                                                                <label for="title"
-                                                                    class="sky-c form-label fw-medium font-12 ps-2">Title</label>
-                                                                <input type="text" name="title"
-                                                                    value="{{ old('title') }}" id="title"
-                                                                    class="sky-c border bg-white w-100 py-2 rounded-3 px-2"
-                                                                    placeholder="Title here">
-                                                                @error('title')
-                                                                    <span class="text-danger">{{ $message }}</span>
-                                                                @enderror
-                                                            </div>
+                                                            <label for="name"
+                                                                class="sky-c form-label fw-medium font-12 ps-2">
+                                                                Title
+                                                            </label>
+                                                            <input type="text" name="name" id="name"
+                                                                value="{{ old('name') }}"
+                                                                class="sky-c border bg-white w-100 py-2 rounded-3 px-2"
+                                                                placeholder="Title here">
+                                                            @error('name')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                         <div class="col-sm-6 mt-sm-0 mt-3 pe-0">
-                                                            <label for="picture-c"
-                                                                class="sky-c form-label fw-medium font-12 ps-2">Upload
-                                                                Image</label>
+                                                            <label for="img"
+                                                                class="sky-c form-label fw-medium font-12 ps-2">
+                                                                Upload Image
+                                                            </label>
                                                             <div class="w-100 bg-white border rounded-3 p-2">
-                                                                <input type="file" name="image" id="picture-c"
-                                                                    class="d-none" accept="image/png">
-                                                                <label for="picture-c" class="uploadbtn2">
-                                                                    <a class="uploadbtn2a">Upload Image</a>
+                                                                <input type="file" name="img" id="img"
+                                                                    class="d-none" accept="image/png, image/jpeg">
+                                                                <label for="img" class="uploadbtn2">
+                                                                    <span class="uploadbtn2a">Upload Image</span>
                                                                     <p class="mb-0 text-muted filename overflow-hidden">
-                                                                        No file chosen</p>
+                                                                        No file chosen
+                                                                    </p>
                                                                 </label>
-                                                                @error('image')
-                                                                    <span class="text-danger">{{ $message }}</span>
-                                                                @enderror
                                                             </div>
+                                                            <div class=" mt-3">
+                                                                <img id="imgPreview" src="#" alt="Image Preview"
+                                                                    class="img-fluid rounded d-none bg-white py-2"
+                                                                    style="max-height: 200px;">
+                                                            </div>
+                                                            @error('img')
+                                                                <span class="text-danger">{{ $message }}</span>
+                                                            @enderror
                                                         </div>
                                                     </div>
-                                                    {{-- <div class="col-12">
-                                                        <div>
-                                                            <label for=""
-                                                                class="sky-c form-label fw-medium mb-0 font-12 ps-2">Detail</label>
-                                                            <textarea name="" id="" class="sky-c border bg-white w-100 py-2 rounded-3 px-2"
-                                                                placeholder="Description" rows="5"></textarea>
-                                                        </div>
-                                                    </div> --}}
                                                 </div>
                                             </div>
                                             <div class="d-flex align-items-center mt-lg-0 mt-5">
                                                 <div>
-                                                    <a href="{{ route('Admin.Industry') }}" class="text-decoration-none text-dark">
+                                                    <a href="{{ route('Admin.Industry') }}"
+                                                        class="text-decoration-none text-dark">
                                                         <div class="border rounded-3 py-2 px-4">Cancel</div>
                                                     </a>
                                                 </div>
@@ -94,7 +94,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -103,26 +102,37 @@
             </div>
         </div>
     </section>
+
+    @include('Templates.Jslinks')
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const fileInput = document.getElementById('picture-c');
+            const fileInput = document.getElementById('img');
             const fileNameElement = document.querySelector('.filename');
+            const preview = document.getElementById('imgPreview');
 
             fileInput.addEventListener('change', function() {
-                if (fileInput.files.length > 0) {
-                    let fileName = fileInput.files[0].name;
-                    if (fileName.length > 15) {
-                        fileName = fileName.substring(0, 12) + '...';
+                if (fileInput.files && fileInput.files[0]) {
+                    const file = fileInput.files[0];
+                    let name = file.name;
+                    if (name.length > 15) {
+                        name = name.substring(0, 12) + '...';
                     }
-
-                    fileNameElement.textContent = fileName;
+                    fileNameElement.textContent = name;
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        preview.src = e.target.result;
+                        preview.classList.remove('d-none');
+                    };
+                    reader.readAsDataURL(file);
                 } else {
                     fileNameElement.textContent = 'No file chosen';
+                    preview.classList.add('d-none');
                 }
             });
         });
     </script>
-    @include('Templates.Jslinks')
+
 </body>
 
 </html>

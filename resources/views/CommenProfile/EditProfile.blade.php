@@ -87,8 +87,8 @@
                                             value="{{ $sharedUser->company }}" placeholder="Type here">
                                     </div>
                                     <div class="col-sm-6 mb-3">
-                                        <label for="start-date" class="fw-medium ps-1">Location</label>
-                                        <input type="text" name="location" id="start-date"
+                                        <label for="location" class="fw-medium ps-1">Location</label>
+                                        <input type="text" name="location" id="location"
                                             value="{{ $sharedUser->location }}"
                                             class="w-100 bg-nblue border rounded-3 p-2" placeholder="Type here">
                                     </div>

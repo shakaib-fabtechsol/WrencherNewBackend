@@ -3,7 +3,7 @@
 
 <head>
     @include('Templates.CssLinks')
-    <title>Add Promotion</title>
+    <title>Add Sub Admin</title>
     <style>
         #ferror {
             display: none;
@@ -12,6 +12,7 @@
 </head>
 
 <body class="bg-white">
+    
     <section class="my-3 mx-sm-3 mx-2 nav-bg rounded-4">
         <div class="p-3 border-bottom">
             <div class="d-flex align-items-center justify-content-between w-100">
@@ -70,7 +71,6 @@
             </div>
         </div>
     </section>
-
 
     @include('Templates.Jslinks')
 
@@ -139,16 +139,15 @@
             if (!hasFields) {
                 fieldError.style.display = "block";
             } else {
-                fieldError.style.display = "none"; 
+                fieldError.style.display = "none";
             }
         }
         const form = document.getElementById("dynamicForm");
         form.addEventListener("submit", function(e) {
             e.preventDefault();
-            toggleSaveButton(); 
+            toggleSaveButton();
         });
     </script>
-
 
 </body>
 

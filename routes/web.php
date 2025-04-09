@@ -41,17 +41,29 @@ Route::group(['middleware' => ['AdminMiddleware']], function () {
     Route::prefix('Admin')->group(function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('Dashboard', 'Dashboard')->name('Admin.Dashboard');
-            Route::get('WebsiteAnalytics', 'WebsiteAnalytics')->name('Admin.WebsiteAnalytics');
             Route::get('BusinessManagement', 'BusinessManagement')->name('Admin.BusinessManagement');
+            Route::get('DeleteUser/{id}', 'DeleteUser')->name('Admin.DeleteUser');
+            Route::get('EditUser/{id}', 'EditUser')->name('Admin.EditUser');
+            Route::post('UpdateUser/{id}', 'UpdateUser')->name('Admin.UpdateUser');
             Route::get('ViewDetail', 'ViewDetail')->name('Admin.ViewDetail');
-            Route::get('ScheduleCalendar', 'ScheduleCalendar')->name('Admin.ScheduleCalendar');
+
             Route::get('Chat', 'Chat')->name('Admin.Chat');
+
             Route::get('Packages', 'Packages')->name('Admin.Packages');
             Route::get('AddNewPackage', 'AddNewPackage')->name('Admin.AddNewPackage');
-            Route::get('Services', 'Services')->name('Admin.Services');
-            Route::get('AddNewService', 'AddNewService')->name('Admin.AddNewService');
+            Route::post('Savepackage', 'Savepackage')->name('Admin.Savepackage');
+            Route::get('DeletePackage/{id}', 'DeletePackage')->name('Admin.DeletePackage');
+            Route::get('EditPackage/{id}', 'EditPackage')->name('Admin.EditPackage');
+            Route::post('UpdatePackage/{id}', 'UpdatePackage')->name('Admin.UpdatePackage');
+
+
             Route::get('Industry', 'Industry')->name('Admin.Industry');
             Route::get('AddNewIndustry', 'AddNewIndustry')->name('Admin.AddNewIndustry');
+            Route::post('SaveIndustry', 'SaveIndustry')->name('Admin.SaveIndustry');
+            Route::get('DeleteIndustry/{id}', 'DeleteIndustry')->name('Admin.DeleteIndustry');
+            Route::get('EditIndustry/{id}', 'EditIndustry')->name('Admin.EditIndustry');
+            Route::post('UpdateIndustry/{id}', 'UpdateIndustry')->name('Admin.UpdateIndustry');
+            
             Route::get('Notifications', 'Notifications')->name('Admin.Notifications');
             Route::get('Profile', 'Profile')->name('Admin.Profile');
             Route::get('EditProfile', 'EditProfile')->name('Admin.EditProfile');
