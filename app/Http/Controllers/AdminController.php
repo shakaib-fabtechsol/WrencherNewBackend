@@ -168,7 +168,7 @@ class AdminController extends Controller
     public function EditIndustry($id)
     {
         $industry = Industry::findOrFail($id);
-        return view('admin.EditIndustry', compact('industry'));
+        return view('Admin.EditIndustry', compact('industry'));
     }
     public function UpdateIndustry(Request $request, $id)
     {
