@@ -54,9 +54,9 @@
                 </li>
                 <li>
                     <a href="#"
-                        class="sidelink {{ request()->routeIs('BusinessUser.Quotation', 'BusinessUser.Invoice', 'BusinessUser.QuotationDetail', 'BusinessUser.Payment', 'BusinessUser.Contract', 'BusinessUser.Reports', 'BusinessUser.Expense', 'BusinessUser.ExpenseDetails', 'BusinessUser.PriceBook', 'BusinessUser.Customer', 'BusinessUser.Inventory', 'BusinessUser.Services') ? 'active' : '' }} d-flex align-items-center justify-content-between">
+                        class="sidelink {{ request()->routeIs('BusinessUser.Quotation', 'BusinessUser.Invoice', 'BusinessUser.QuotationDetail', 'BusinessUser.Payment', 'BusinessUser.Contract', 'BusinessUser.Reports', 'BusinessUser.Expense', 'BusinessUser.ExpenseDetails', 'BusinessUser.PriceBook', 'BusinessUser.Customer', 'BusinessUser.Inventory') ? 'active' : '' }} d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
-                            <img src="{{ request()->routeIs('BusinessUser.Quotation', 'BusinessUser.Invoice', 'BusinessUser.QuotationDetail', 'BusinessUser.Payment', 'BusinessUser.Contract', 'BusinessUser.Reports', 'BusinessUser.Expense', 'BusinessUser.ExpenseDetails', 'BusinessUser.PriceBook', 'BusinessUser.Customer', 'BusinessUser.Inventory', 'BusinessUser.Services') ? asset('img/sales-active.svg') : asset('img/sales.png') }}"
+                            <img src="{{ request()->routeIs('BusinessUser.Quotation', 'BusinessUser.Invoice', 'BusinessUser.QuotationDetail', 'BusinessUser.Payment', 'BusinessUser.Contract', 'BusinessUser.Reports', 'BusinessUser.Expense', 'BusinessUser.ExpenseDetails', 'BusinessUser.PriceBook', 'BusinessUser.Customer', 'BusinessUser.Inventory') ? asset('img/sales-active.svg') : asset('img/sales.png') }}"
                                 alt="" class="sideicon">
                             <p class="mb-0">Sales</p>
                         </div>
@@ -144,15 +144,15 @@
                         </div>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="#"
-                        class="sidelink d-flex align-items-center justify-content-between">
+                <li>
+                    <a href="{{ route('BusinessUser.Services') }}"
+                        class="sidelink {{ request()->routeIs('BusinessUser.Services') ? 'active' : '' }} d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
-                            <img src="{{ asset('img/team.png') }}" alt="" class="sideicon">
-                            <p class="mb-0">Users</p>
+                            <img src="{{ request()->routeIs('BusinessUser.Services') ? asset('img/services-active.png') : asset('img/services.png') }}" alt="" class="sideicon">
+                            <p class="mb-0">Services</p>
                         </div>
                     </a>
-                </li> -->
+                </li>
 
 
             </ul>
