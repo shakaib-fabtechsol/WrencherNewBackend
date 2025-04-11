@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="">
-                    @include('Templates.BusinessUserNavBar')
+                    {{-- @include('Templates.BusinessUserNavBar') --}}
                 </div>
             </div>
         </div>
@@ -61,136 +61,7 @@
                                     <div class="col-sm-12 mb-3">
                                         <label for="issue_description" class="ps-2 fw-semibold">Briefly describe the
                                             issue or service you need</label>
-                                        <textarea id="issue_description" class="w-100 bg-white border rounded-3 p-2" rows="5" placeholder="Type here"></textarea>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="service_type_specific" class="ps-2 fw-semibold">Is this a repair,
-                                            installation, or maintenance service?</label>
-                                        <select id="service_type_specific" class="w-100 bg-white border rounded-3 p-2">
-                                            <option value="" selected disabled hidden>Select here</option>
-                                            <option value="Repair">Repair</option>
-                                            <option value="Installation">Installation</option>
-                                            <option value="Maintenance">Maintenance</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Location Details</h5>
-                                    <div class="col-sm-12 mb-3">
-                                        <label for="address" class="ps-2 fw-semibold">Address</label>
-                                        <input type="text" id="address" class="w-100 bg-white border rounded-3 p-2"
-                                            placeholder="Type here">
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="property_type" class="ps-2 fw-semibold">Is this a residential or
-                                            commercial property?</label>
-                                        <select id="property_type" class="w-100 bg-white border rounded-3 p-2">
-                                            <option value="" selected disabled hidden>Select here</option>
-                                            <option value="Residential">Residential</option>
-                                            <option value="Commercial">Commercial</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Urgency</h5>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="urgency" class="ps-2 fw-semibold">How urgent is the
-                                            service?</label>
-                                        <select id="urgency" class="w-100 bg-white border rounded-3 p-2">
-                                            <option value="" selected disabled hidden>Select here</option>
-                                            <option value="Emergency">Emergency</option>
-                                            <option value="Within 24 hours">Within 24 hours</option>
-                                            <option value="Flexible">Flexible</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Scope of Work</h5>
-                                    <div class="col-sm-12 mb-3">
-                                        <label for="requirements" class="ps-2 fw-semibold">Specific requirements or
-                                            instructions</label>
-                                        <textarea id="requirements" class="w-100 bg-white border rounded-3 p-2" rows="5" placeholder="Type here"></textarea>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="materials_provided" class="ps-2 fw-semibold">Materials or parts
-                                            availability</label>
-                                        <select id="materials_provided" class="w-100 bg-white border rounded-3 p-2">
-                                            <option value="" selected disabled hidden>Select here</option>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No">No</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Access Details</h5>
-                                    <div class="col-sm-12 mb-3">
-                                        <label for="access_details" class="ps-2 fw-semibold">Access restrictions or
-                                            special instructions</label>
-                                        <textarea id="access_details" class="w-100 bg-white border rounded-3 p-2" rows="5" placeholder="Type here"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Timing Preferences</h5>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="timing" class="ps-2 fw-semibold">Preferred date and time</label>
-                                        <input type="datetime-local" id="timing"
-                                            class="w-100 bg-white border rounded-3 p-2">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Budget</h5>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="budget" class="ps-2 fw-semibold">Budget (optional)</label>
-                                        <input type="number" id="budget"
-                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Type here">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Additional Services</h5>
-                                    <div class="col-sm-12 mb-3">
-                                        <label for="additional_services" class="ps-2 fw-semibold">Would you like to
-                                            bundle other services?</label>
-                                        <select id="additional_services" class="w-100 bg-white border rounded-3 p-2">
-                                            <option value="" selected disabled hidden>Select here</option>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No">No</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Pictures or Videos</h5>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="media" class="ps-2 fw-semibold">Upload pictures or
-                                            videos</label>
-                                        <input type="file" id="media"
-                                            class="w-100 bg-white border rounded-3 p-2" multiple>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Referral Information</h5>
-                                    <div class="col-sm-6 mb-3">
-                                        <label for="referral" class="ps-2 fw-semibold">How did you hear about
-                                            us?</label>
-                                        <input type="text" id="referral"
-                                            class="w-100 bg-white border rounded-3 p-2" placeholder="Type here">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <h5>Special Requests or Notes</h5>
-                                    <div class="col-sm-12 mb-3">
-                                        <label for="special_notes" class="ps-2 fw-semibold">Additional
-                                            information</label>
-                                        <textarea id="special_notes" class="w-100 bg-white border rounded-3 p-2 " rows="5" placeholder="Type here"></textarea>
+                                        <textarea id="issue_description" class="w-100 bg-white border rounded-3 p-2" rows="5" placeholder="Please provide a detailed explanation of your query."></textarea>
                                     </div>
                                 </div>
                             </div>
