@@ -130,6 +130,7 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('SettingsBillingDetails', 'SettingsBillingDetails')->name('BusinessUser.SettingsBillingDetails');
             Route::get('SettingsPaymentSetup', 'SettingsPaymentSetup')->name('BusinessUser.SettingsPaymentSetup');
             Route::get('AddNewService', 'AddNewService')->name('BusinessUser.AddNewService');
+            Route::get('Services', 'Services')->name('BusinessUser.Services');
             Route::get('Launchpad', 'Launchpad')->name('BusinessUser.Launchpad');
             Route::get('Notifications', 'Notifications')->name('BusinessUser.Notifications');
 

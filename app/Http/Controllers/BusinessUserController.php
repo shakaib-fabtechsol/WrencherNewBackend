@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Industry;
 use App\Models\Inventory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -269,11 +270,15 @@ class BusinessUserController extends Controller
 
     public function Services()
     {
+        
         return view('BusinessUser.Services');
     }
     public function AddNewService()
     {
-        return view('BusinessUser.AddNewService');
+        $industries = Industry::get();
+        return view('BusinessUser.AddNewService', [
+            'industries' => $industries,
+        ]);
     }
 
     public function Launchpad()
