@@ -381,7 +381,9 @@ class BusinessUserController extends Controller
 
     public function Expense()
     {
-        $expenses = Expense::all();
+        $expenses = Expense::where('businessUserId', auth()->user()->id)
+        ->orderBy('id', 'desc')
+        ->get();
 
         if (request()->is('api/*')) {
             return response()->json([
