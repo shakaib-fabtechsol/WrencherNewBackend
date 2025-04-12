@@ -108,7 +108,6 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('AddNewContract', 'AddNewContract')->name('BusinessUser.AddNewContract');
             Route::get('EditContract', 'EditContract')->name('BusinessUser.EditContract');
             Route::get('Reports', 'Reports')->name('BusinessUser.Reports');
-            Route::get('Expense', 'Expense')->name('BusinessUser.Expense');
             Route::get('AddNewExpenses', 'AddNewExpenses')->name('BusinessUser.AddNewExpenses');
             Route::get('ExpenseDetails', 'ExpenseDetails')->name('BusinessUser.ExpenseDetails');
             Route::get('PriceBook', 'PriceBook')->name('BusinessUser.PriceBook');
@@ -135,7 +134,14 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('Notifications', 'Notifications')->name('BusinessUser.Notifications');
 
             Route::post('CreateInventory', 'CreateInventory')->name('BusinessUser.CreateInventory');
-            Route::get('ShowInventory', 'ShowInventory')->name('BusinessUser.ShowInventory');
+            Route::get('Inventory', 'Inventory')->name('BusinessUser.Inventory');
+            Route::get('DeleteInventory/{id}', 'DeleteInventory')->name('BusinessUser.DeleteInventory');
+            
+            Route::post('CreateExpense', 'CreateExpense')->name('BusinessUser.CreateExpense');
+            Route::post('UpdateExpense/{id}', 'UpdateExpense')->name('BusinessUser.UpdateExpense');
+            Route::get('EditExpense/{id}', 'EditExpense')->name('BusinessUser.EditExpense');
+            Route::get('Expense', 'Expense')->name('BusinessUser.Expense');
+            Route::get('DeleteExpense/{id}', 'DeleteExpense')->name('BusinessUser.DeleteExpense');
         });
     });
 });

@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Expense;
+use App\Models\Wjob;
+
 class BusinessUserController extends Controller
 {
 
@@ -112,16 +115,6 @@ class BusinessUserController extends Controller
         return view('BusinessUser.Reports');
     }
 
-    public function Expense()
-    {
-        return view('BusinessUser.Expense');
-    }
-
-    public function AddNewExpenses()
-    {
-        return view('BusinessUser.AddNewExpenses');
-    }
-
     public function ExpenseDetails()
     {
         return view('BusinessUser.ExpenseDetails');
@@ -205,9 +198,204 @@ class BusinessUserController extends Controller
 
     public function Inventory()
     {
-        return view('BusinessUser.Inventory');
+        $loginUser = auth()->user()->id;
+        $inventories = Inventory::where('businessUserId', $loginUser)->get();
+        $outOfStock = Inventory::where('businessUserId', $loginUser)
+        ->where('quantity', 0)
+        ->get();
+        $lowStock = Inventory::where('businessUserId', $loginUser)
+        ->where('quantity', '<', 10)
+        ->where('quantity', '>', 0)
+        ->get();
+        if (request()->is('api/*')) {
+            return response()->json([
+                'inventories' => $inventories,
+                'out_of_stock' => $outOfStock,
+                'low_stock' => $lowStock,
+            ], 200);
+        }
+        return view('BusinessUser.Inventory', [
+            'inventories' => $inventories,
+            'outOfStock' => $outOfStock,
+            'lowStock' => $lowStock,
+        ]);
+    }
+    public function CreateInventory(Request $request) {
+        $validator = Validator::make($request->all(), [
+            '*' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'errors' => $validator->errors()
+                ], 400);
+            }
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $request->all();
+        $data['businessUserId'] = auth()->user()->id;
+        $inventory = Inventory::create($data);
+
+        if ($request->wantsJson() || $request->is('api/*')) {
+            return response()->json([
+                'message' => 'Inventory added successfully!',
+                'inventory' => $inventory
+            ], 200);
+        }
+        return redirect()->route('BusinessUser.Inventory')->with('success','Inventory added successfully');
     }
 
+    // public function UpdateInventory(Request $request, $id)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         '*' => 'required',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         if ($request->wantsJson() || $request->is('api/*')) {
+    //             return response()->json([
+    //                 'errors' => $validator->errors()
+    //             ], 400);
+    //         }
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+
+    //     $inventory = Inventory::findOrFail($id);
+    //     $inventory->update($request->all());
+
+    //     if ($request->wantsJson() || $request->is('api/*')) {
+    //         return response()->json([
+    //             'message' => 'Inventory updated successfully!',
+    //             'inventory' => $inventory
+    //         ], 200);
+    //     }
+    //     return redirect()->route('BusinessUser.Inventory')->with('success', 'Inventory updated successfully');
+    // }
+
+    public function DeleteInventory($id)
+    {
+        $inventory = Inventory::findOrFail($id);
+        $inventory->delete();
+
+        if (request()->is('api/*')) {
+            return response()->json([
+                'message' => 'Inventory deleted successfully!'
+            ], 200);
+        }
+        return redirect()->route('BusinessUser.Inventory')->with('success', 'Inventory deleted successfully');
+    }
+    public function AddNewExpenses()
+    {
+        $jobs = Wjob::where('businessUserId', auth()->id())
+            ->orderBy('id', 'desc')
+            ->get();
+
+        $items = Inventory::where('businessUserId', auth()->id())
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('BusinessUser.AddNewExpenses', compact('jobs', 'items'));
+    }
+    public function CreateExpense(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            '*' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'errors' => $validator->errors()
+                ], 400);
+            }
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $data = $request->all();
+        $data['businessUserId'] = auth()->user()->id;
+
+        if ($request->hasFile('receipt')) {
+            $file = $request->file('receipt');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $path = $file->storeAs('receipts', $filename, 'public');
+            $data['receipt'] = $path;
+
+            // Save the image in a folder
+            $destinationPath = public_path('images/receipts');
+            $file->move($destinationPath, $filename);
+        }
+
+        $expense = Expense::create($data);
+
+        if ($request->wantsJson() || $request->is('api/*')) {
+            return response()->json([
+                'message' => 'Expense created successfully!',
+                'expense' => $expense
+            ], 200);
+        }
+        return redirect()->route('BusinessUser.Expense')->with('success', 'Expense created successfully');
+    }
+
+    public function UpdateExpense(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'job_id' => 'required|exists:jobs,id',
+            'item_id' => 'required|exists:inventory,id',
+            'quantity' => 'required|integer|min:1',
+            'cost' => 'required|numeric|min:0',
+            'description' => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            if ($request->wantsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'errors' => $validator->errors()
+                ], 400);
+            }
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $expense = Expense::findOrFail($id);
+        $expense->update($request->all());
+
+        if ($request->wantsJson() || $request->is('api/*')) {
+            return response()->json([
+                'message' => 'Expense updated successfully!',
+                'expense' => $expense
+            ], 200);
+        }
+        return redirect()->route('BusinessUser.Expense')->with('success', 'Expense updated successfully');
+    }
+
+    public function DeleteExpense($id)
+    {
+        $expense = Expense::findOrFail($id);
+        $expense->delete();
+
+        if (request()->is('api/*')) {
+            return response()->json([
+                'message' => 'Expense deleted successfully!'
+            ], 200);
+        }
+        return redirect()->route('BusinessUser.Expense')->with('success', 'Expense deleted successfully');
+    }
+
+    public function Expense()
+    {
+        $expenses = Expense::where('businessUserId', auth()->user()->id)
+        ->orderBy('id', 'desc')
+        ->get();
+
+        if (request()->is('api/*')) {
+            return response()->json([
+                'expenses' => $expenses
+            ], 200);
+        }
+        return view('BusinessUser.Expense', compact('expenses'));
+    }
+    
     public function AddNewInventory()
     {
         return view('BusinessUser.AddNewInventory');
@@ -297,43 +485,5 @@ class BusinessUserController extends Controller
         ], 200);
     }
 
-    public function CreateInventory(Request $request) {
-        $validator = Validator::make($request->all(), [
-            '*' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            if ($request->wantsJson() || $request->is('api/*')) {
-                return response()->json([
-                    'errors' => $validator->errors()
-                ], 400);
-            }
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $data = $request->all();
-        $data['businessUserId'] = auth()->user()->id;
-        $inventory = Inventory::create($data);
-
-        if ($request->wantsJson() || $request->is('api/*')) {
-            return response()->json([
-                'message' => 'Inventory added successfully!',
-                'inventory' => $inventory
-            ], 200);
-        }
-        return redirect()->back()->with('success','Inventory added successfully');
-    }
-
-    public function ShowInventory() {
-        $loginUser = auth()->user()->id;
-        $inventories = Inventory::where('businessUserId', $loginUser)->get();
-        if (request()->is('api/*')) {
-            return response()->json([
-                'inventories' => $inventories
-            ], 200);
-        }
-        return view('BusinessUser.Inventory', [
-            'inventories' => $inventories,
-        ]);
-    }
+  
 }

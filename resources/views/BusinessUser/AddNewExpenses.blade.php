@@ -28,7 +28,8 @@
                     <div class="row">
                         <div class="p-4">
                             <h3 class="expense-color">New Expense</h3>
-                            <form action="#">
+                            <form action="{{ route('BusinessUser.CreateExpense') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="col-md-8">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -39,28 +40,28 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="selectitem" class="form-label font-md">Item Name:</label>
+                                            <label for="itemName" class="form-label font-md">Item Name:</label>
                                             <div class="border rounded-3 d-flex align-items-center">
-                                                <select id="selectitem" name="selectitem"
+                                                <select id="itemName" name="itemName"
                                                     class="form-select focus-none rounded-3 form-bg">
                                                     <option value="" disabled selected>Select item</option>
-                                                    <option value="item1">item 1</option>
-                                                    <option value="item2">item 2</option>
-                                                    <option value="item3">item 3</option>
+                                                    @foreach ($items as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mt-3">
-                                            <label for="amount" class="form-label font-md">Total Amount:</label>
+                                            <label for="totalAmount" class="form-label font-md">Total Amount:</label>
                                             <div class="border rounded-3 d-flex align-items-center">
-                                                <input type="number" id="amount" name="amount"
-                                                    class=" form-control focus-none rounded-3 form-bg" placeholder="$:">
+                                                <input type="number" id="totalAmount" name="totalAmount"
+                                                    class="form-control focus-none rounded-3 form-bg" placeholder="$:">
                                             </div>
                                         </div>
                                         <div class="col-md-6 mt-3">
-                                            <label for="Reimburse" class="form-label font-md">Reimburse to:</label>
+                                            <label for="reimburseTo" class="form-label font-md">Reimburse to:</label>
                                             <div class="border rounded-3 d-flex align-items-center">
-                                                <select id="Reimburse" name="Reimburse"
+                                                <select id="reimburseTo" name="reimburseTo"
                                                     class="form-select focus-none rounded-3 form-bg">
                                                     <option value="" disabled selected>No Reimburse</option>
                                                     <option value="item1">Select 1</option>
@@ -70,23 +71,23 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 mt-3">
-                                            <label for="selectjob" class="form-label font-md">Select Job:</label>
+                                            <label for="jobId" class="form-label font-md">Select Job:</label>
                                             <div class="border rounded-3 d-flex align-items-center">
-                                                <select id="selectjob" name="selectjob"
+                                                <select id="jobId" name="job"
                                                     class="form-select focus-none rounded-3 form-bg">
                                                     <option value="" disabled selected>Select Job</option>
-                                                    <option value="item1">Jop 1</option>
-                                                    <option value="item2">Jop 2</option>
-                                                    <option value="item3">Jop 3</option>
+                                                    @foreach ($jobs as $job)
+                                                        <option value="{{ $job->id }}">{{ $job->id }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 mt-3">
-                                            <label for="picture-c" class="form-label font-md">Receipt</label>
+                                            <label for="receipt" class="form-label font-md">Receipt</label>
                                             <div
                                                 class="w-100 border-2 rounded-3 d-flex align-items-center pe-2 form-bg p-1">
-                                                <input type="file" name="" id="picture-c" class="d-none">
-                                                <label for="picture-c" class="uploadbtn2">
+                                                <input type="file" name="receipt" id="receipt" class="d-none">
+                                                <label for="receipt" class="uploadbtn2">
                                                     <a class="uploadbtn2a">Upload Image</a>
                                                     <p class="mb-0 text-muted filename overflow-hidden">No file chosen
                                                     </p>
@@ -94,20 +95,20 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 mt-3">
-                                            <label for="payment" class="form-label font-md">Payment Status:</label>
+                                            <label for="paymentStatus" class="form-label font-md">Payment Status:</label>
                                             <div class="border rounded-3 d-flex align-items-center">
-                                                <select id="payment" name="payment"
+                                                <select id="paymentStatus" name="paymentStatus"
                                                     class="form-select shadow-none focus-none rounded-3 form-bg">
                                                     <option value="" disabled selected>Select Status</option>
-                                                    <option value="item1">satus 1</option>
-                                                    <option value="item2">satus 2</option>
+                                                    <option value="status1">Status 1</option>
+                                                    <option value="status2">Status 2</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-12 mt-3">
-                                            <label for="details" class="form-label font-md">Details:</label>
+                                            <label for="expenseDetails" class="form-label font-md">Details:</label>
                                             <div class="border rounded-3 d-flex align-items-center">
-                                                <textarea id="details" name="details" class="form-control p-2 rounded-3 shadow-none focus-none form-bg" rows="5"
+                                                <textarea id="expenseDetails" name="details" class="form-control p-2 rounded-3 shadow-none focus-none form-bg" rows="5"
                                                     placeholder="Add an item Expense detail"></textarea>
                                             </div>
                                         </div>

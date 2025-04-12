@@ -64,7 +64,7 @@
                                     <div class="col-sm-6 mb-3">
                                         <label for="trackingStatus" class="ps-2 fw-semibold">Tracking Status</label>
                                         <select id="trackingStatus" name="trackingStatus" class="w-100 bg-white border rounded-3 p-2" name="trackingStatus" id="">
-                                            <option value="High">High</option>
+                                            <option value="high">High</option>
                                             <option value="Medium">Medium</option>
                                             <option value="Low">Low</option>
                                         </select>

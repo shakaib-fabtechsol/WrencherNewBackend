@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('type');
             $table->string('date')->nullable();
-            $table->integer('qunatity')->nullable();
+            $table->integer('quantity')->nullable();
             $table->string('trackingStatus')->nullable();
             $table->timestamps();
         });

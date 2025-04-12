@@ -20,7 +20,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('test', 'test')->name('test');
         Route::post('AddCustomer', 'StoreCustomer')->name('BusinessUser.AddCustomer');
         Route::post('CreateInventory', 'CreateInventory')->name('BusinessUser.CreateInventory');
-        Route::get('ShowInventory', 'ShowInventory')->name('BusinessUser.ShowInventory');
+        Route::get('Inventory', 'Inventory')->name('BusinessUser.Inventory');
+        Route::delete('DeleteInventory/{id}', 'DeleteInventory')->name('BusinessUser.DeleteInventory');
     });
 
 });
