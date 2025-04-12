@@ -317,14 +317,11 @@ class BusinessUserController extends Controller
         $data['businessUserId'] = auth()->user()->id;
 
         if ($request->hasFile('receipt')) {
-            $file = $request->file('receipt');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = $file->storeAs('receipts', $filename, 'public');
-            $data['receipt'] = $path;
-
-            // Save the image in a folder
-            $destinationPath = public_path('images/receipts');
-            $file->move($destinationPath, $filename);
+            $photo = $request->file('receipt');
+            $photo_name = time() . "-" . $photo->getClientOriginalName();
+            $photo_destination = public_path('uploads/receipts');
+            $photo->move($photo_destination, $photo_name);
+            $data['receipt'] = 'uploads/receipts/' . $photo_name;
         }
 
         $expense = Expense::create($data);
