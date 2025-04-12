@@ -381,16 +381,7 @@ class BusinessUserController extends Controller
 
     public function Expense()
     {
-        $user = auth()->user();
-        if (!$user) {
-            return response()->json([
-                'message' => 'Unauthorized access'
-            ], 401);
-        }
-
-        $expenses = Expense::where('businessUserId', $user->id)
-        ->orderBy('id', 'desc')
-        ->get();
+        $expenses = Expense::all();
 
         if (request()->is('api/*')) {
             return response()->json([
