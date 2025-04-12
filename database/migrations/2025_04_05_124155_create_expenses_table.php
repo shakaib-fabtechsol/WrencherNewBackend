@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('itemName');
             $table->integer('totalAmount');
             $table->string('reimburseTo');
-            $table->integer('job')->nullable();
-            $table->integer('receipt')->nullable();
+            $table->integer('job');
+            $table->string('receipt')->nullable();
             $table->string('paymentStatus')->nullable();
             $table->string('details')->nullable();
             $table->timestamps();

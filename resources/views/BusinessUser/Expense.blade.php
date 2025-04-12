@@ -7,6 +7,11 @@
 </head>
 
 <body>
+    @if (session('success'))
+    <script>
+        swal("Good job!", "{{ session('success') }}", "success");
+    </script>
+@endif
     <section>
         <div class="main">
             @include('Templates.BusinessUserSideBar')
@@ -68,10 +73,10 @@
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>Customer</th>
                                                         <th>Job</th>
                                                         <th>Invoice Receipt</th>
                                                         <th>Date</th>
+                                                        <th>Item Name</th>
                                                         <th>Reimburse to</th>
                                                         <th>Total Expenses</th>
                                                         <th>Payment Status</th>
@@ -79,135 +84,53 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="align-middle">
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <img src="{{ asset('img/customer1.png') }}"
-                                                                    alt="customer1" class="me-2 cus-img rounded-circle">
-                                                                <span class="lblue font-md">Alexia Haass</span>
-                                                            </div>
-                                                        </td>
-                                                        <td>Celling fan install</td>
-                                                        <td> <img src="{{ asset('img/customer1.png') }}"
-                                                                alt="Invoice Receipt"
-                                                                class="me-2 cus-img rounded-circle"></td>
-                                                        <td>Mon-Aug 13,2024</td>
-                                                        <td>Haseeb</td>
-                                                        <td>$250.0</td>
-                                                        <td> <button type="button"
-                                                                class="bg-lgreen text-success font-md status-btn text-center px-3 py-2 rounded-pill border-0">
-                                                                paid
-                                                            </button></td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="team-size">
-                                                                    <a
-                                                                        href="{{ route('BusinessUser.ExpenseDetails') }}">
-                                                                        <img src="{{ asset('img/actioneye.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
+                                                    @foreach ($expenses as $expense)
+                                                        <tr class="align-middle">
+                                                           
+                                                            <td>{{ $expense->job }}</td>
+                                                            <td>
+                                                                <a href="{{ asset($expense->receipt) }}" src="{{ asset($expense->receipt) }}"
+                                                                    alt="Invoice Receipt"
+                                                                    class="me-2 cus-img rounded-circle">Click here</a>
+                                                            </td>
+                                                            <td>{{ $expense->date }}</td>
+                                                            <td>{{ $expense->itemName }}</td>
+                                                            <td>{{ $expense->reimburseTo }}</td>
+                                                            <td>${{ $expense->totalAmount }}</td>
+                                                            <td>
+                                                                <button type="button"
+                                                                    class="bg-{{ $expense->paymentStatus == 'paid' ? 'lgreen' : 'lred' }} text-{{ $expense->paymentStatus == 'paid' ? 'success' : 'danger' }} font-md status-btn text-center px-3 py-2 rounded-pill border-0">
+                                                                    {{ $expense->paymentStatus }}
+                                                                </button>
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="team-size">
+                                                                        <a href="{{ route('BusinessUser.ExpenseDetails', $expense->id) }}">
+                                                                            <img src="{{ asset('img/actioneye.svg') }}"
+                                                                                class="image-fluid img">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="ms-2 team-size">
+                                                                        <a href="{{ route('BusinessUser.EditExpense', $expense->id) }}">
+                                                                            <img src="{{ asset('img/team-pen.svg') }}"
+                                                                                class="image-fluid img">
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="ms-2 team-size">
+                                                                        <form action="{{ route('BusinessUser.DeleteExpense', $expense->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this expense?');">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit" class="border-0 bg-transparent p-0">
+                                                                                <img src="{{ asset('img/team-del.svg') }}"
+                                                                                    class="image-fluid img">
+                                                                            </button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="ms-2 team-size">
-                                                                    <a href="#">
-                                                                        <img src="{{ asset('img/team-pen.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="ms-2 team-size">
-                                                                    <a href="#">
-                                                                        <img src="{{ asset('img/team-del.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="align-middle">
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <img src="{{ asset('img/customer1.png') }}"
-                                                                    alt="customer1" class="me-2 cus-img rounded-circle">
-                                                                <span class="lblue font-md">Alexia Haass</span>
-                                                            </div>
-                                                        </td>
-                                                        <td>Celling fan install</td>
-                                                        <td> <img src="{{ asset('img/customer1.png') }}"
-                                                                alt="Invoice Receipt"
-                                                                class="me-2 cus-img rounded-circle"></td>
-                                                        <td>Mon-Aug 13,2024</td>
-                                                        <td>Haseeb</td>
-                                                        <td>$250.0</td>
-                                                        <td> <button type="button"
-                                                                class="bg-lgreen text-success font-md status-btn text-center px-3 py-2 rounded-pill border-0">
-                                                                paid
-                                                            </button></td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="team-size">
-                                                                    <a
-                                                                        href="{{ route('BusinessUser.ExpenseDetails') }}">
-                                                                        <img src="{{ asset('img/actioneye.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="ms-2 team-size">
-                                                                    <a href="#">
-                                                                        <img src="{{ asset('img/team-pen.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="ms-2 team-size">
-                                                                    <a href="#">
-                                                                        <img src="{{ asset('img/team-del.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="align-middle">
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <img src="{{ asset('img/customer1.png') }}"
-                                                                    alt="customer1" class="me-2 cus-img rounded-circle">
-                                                                <span class="lblue font-md">Alexia Haass</span>
-                                                            </div>
-                                                        </td>
-                                                        <td>Celling fan install</td>
-                                                        <td> <img src="{{ asset('img/customer1.png') }}"
-                                                                alt="Invoice Receipt"
-                                                                class="me-2 cus-img rounded-circle"></td>
-                                                        <td>Mon-Aug 13,2024</td>
-                                                        <td>Haseeb</td>
-                                                        <td>$250.0</td>
-                                                        <td> <button type="button"
-                                                                class="bg-lgreen text-success font-md status-btn text-center px-3 py-2 rounded-pill border-0">
-                                                                paid
-                                                            </button></td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="team-size">
-                                                                    <a
-                                                                        href="{{ route('BusinessUser.ExpenseDetails') }}">
-                                                                        <img src="{{ asset('img/actioneye.sv') }}g"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="ms-2 team-size">
-                                                                    <a href="#">
-                                                                        <img src="{{ asset('img/team-pen.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="ms-2 team-size">
-                                                                    <a href="#">
-                                                                        <img src="{{ asset('img/team-del.svg') }}"
-                                                                            class="image-fluid img">
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>

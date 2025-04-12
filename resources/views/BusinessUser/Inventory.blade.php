@@ -4,9 +4,15 @@
 <head>
     @include('Templates.CssLinks')
     <title>Inventory</title>
+
 </head>
 
 <body>
+    @if (session('success'))
+        <script>
+            swal("Good job!", "{{ session('success') }}", "success");
+        </script>
+    @endif
     <section>
         <div class="main">
             @include('Templates.BusinessUserSideBar')
@@ -27,6 +33,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="right-bottom">
                     <div class="bottom-main">
                         <div class="content ">
@@ -160,7 +167,7 @@
                                                                         </div>
 
                                                                         <div class="ms-2">
-                                                                            <a href="#"
+                                                                            <a href="{{ route('BusinessUser.DeleteInventory', ['id' => $inventory->id]) }}"
                                                                                 class="text-center inline-block trash-b p-2 rounded-3"><i
                                                                                     class="fa-solid fa-trash text-dark"></i></a>
                                                                         </div>
@@ -262,7 +269,7 @@
                                                                         </div>
 
                                                                         <div class="ms-2">
-                                                                            <a href="#"
+                                                                            <a href="{{ route('BusinessUser.DeleteInventory', ['id' => $lowSt->id]) }}"
                                                                                 class="text-center inline-block trash-b p-2 rounded-3"><i
                                                                                     class="fa-solid fa-trash text-dark"></i></a>
                                                                         </div>
@@ -363,7 +370,7 @@
                                                                         </div>
 
                                                                         <div class="ms-2">
-                                                                            <a href="#"
+                                                                            <a href="{{ route('BusinessUser.DeleteInventory', ['id' => $outOfSt->id]) }}"
                                                                                 class="text-center inline-block trash-b p-2 rounded-3"><i
                                                                                     class="fa-solid fa-trash text-dark"></i></a>
                                                                         </div>
