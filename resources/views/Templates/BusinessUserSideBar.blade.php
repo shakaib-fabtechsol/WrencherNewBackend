@@ -9,6 +9,16 @@
         <div class="list">
             <ul class="first-ul">
                 <li>
+                    <a href="{{ route('BusinessUser.Launchpad') }}"
+                        class="sidelink {{ request()->routeIs('BusinessUser.Launchpad') ? 'active' : '' }} d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i
+                                class="fa-solid fa-network-wired sideicon sidefont {{ request()->routeIs('BusinessUser.Launchpad') ? 'text-white' : '' }}"></i>
+                            <p class="mb-0">Launch Pad</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('BusinessUser.Dashboard') }}"
                         class="sidelink {{ request()->routeIs('BusinessUser.Dashboard', 'BusinessUser.WebsiteAnalytics') ? 'active' : '' }} d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
@@ -134,16 +144,7 @@
                         <li><a class="sidelink" href="#">Price Book</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="{{ route('BusinessUser.Launchpad') }}"
-                        class="sidelink {{ request()->routeIs('BusinessUser.Launchpad') ? 'active' : '' }} d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i
-                                class="fa-solid fa-network-wired sideicon sidefont {{ request()->routeIs('BusinessUser.Launchpad') ? 'text-white' : '' }}"></i>
-                            <p class="mb-0">Launch Pad</p>
-                        </div>
-                    </a>
-                </li>
+               
                 <li>
                     <a href="{{ route('BusinessUser.Services') }}"
                         class="sidelink {{ request()->routeIs('BusinessUser.Services') ? 'active' : '' }} d-flex align-items-center justify-content-between">
