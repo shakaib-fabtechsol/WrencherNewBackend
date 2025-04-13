@@ -141,7 +141,10 @@ class BusinessUserController extends Controller
 
         return view('BusinessUser.Customer', compact('customers'));
     }
-
+    public function CreateService()
+    {
+        return view('BusinessUser.CreateService');
+    }
     public function StoreCustomer(Request $request)
     {
         $validator = Validator::make($request->all(), [
