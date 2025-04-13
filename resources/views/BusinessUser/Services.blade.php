@@ -49,7 +49,7 @@
                                             </span>
                                         </div>
                                         <div class="d-sm-flex justify-content-end">
-                                            <a href="{{ route('BusinessUser.AddNewService') }}"
+                                            <a href="{{ route('BusinessUser.CreateService') }}"
                                                 class="mbl-100 d-flex justify-content-center align-items-center mt-3 mt-lg-0 rounded-2 px-4 text-nowrap py-2 bg-sky text-white text-decoration-none">
                                                 <i class="fas fa-plus me-1"></i>
                                                 <span>Add Services</span>

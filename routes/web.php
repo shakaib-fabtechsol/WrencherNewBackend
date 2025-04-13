@@ -142,6 +142,7 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('EditExpense/{id}', 'EditExpense')->name('BusinessUser.EditExpense');
             Route::get('Expense', 'Expense')->name('BusinessUser.Expense');
             Route::get('DeleteExpense/{id}', 'DeleteExpense')->name('BusinessUser.DeleteExpense');
+            Route::get('CreateService', 'CreateService')->name('BusinessUser.CreateService');
         });
     });
 });
