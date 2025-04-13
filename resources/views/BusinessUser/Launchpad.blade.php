@@ -30,9 +30,16 @@
                 <div class="right-bottom">
                     <div class="bottom-main">
                         <div class="content ">
-                            <div class="container-fluid">
-                                <div class="d-flex justify-content-end">
+                            <div class="container-fluid cust-prog">
+                                <div class="d-flex justify-content-end mt-3">
                                     <a href="{{ route('BusinessUser.Dashboard') }}" class="bg-sky bg-blue px-4 fw-medium  py-2 rounded-3 text-decoration-none text-white">Skip</a>
+                                </div>
+                                <div class="progress-container mb-4"></div>
+                                    <div class="progress" style="height: 20px; background-color: white; border:1px solid #007bff; border-radius: 10px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 50%; background-color: #007bff; border-radius: 10px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                            <span class="progress-text text-black fw-bold">50% Complete</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-sm-6 col-lg-4 p-2">

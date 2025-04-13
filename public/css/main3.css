@@ -1443,6 +1443,16 @@ select:focus {
 .checkbox-wrapper-6 .tgl-light:checked+.tgl-btn {
     background: #1a83f5;
 }
+.cust-prog .progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cust-prog .progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
 /* ----------chat end ------------- */
 @media screen and (min-width: 1441px) {
     .right-c {
