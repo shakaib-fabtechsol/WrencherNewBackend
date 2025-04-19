@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Expense;
 use App\Models\Wjob;
+use App\Models\TeamMember;
 
 class BusinessUserController extends Controller
 {
@@ -403,18 +404,121 @@ class BusinessUserController extends Controller
 
     public function Team()
     {
-        return view('BusinessUser.Team');
-    }
+        $users = TeamMember::where('businessUserId', auth()->user()->id)
+        ->orderBy('id', 'desc')
+        ->get();
 
+        if (request()->is('api/*')) {
+            return response()->json([
+                'users' => $users
+            ], 200);
+        }
+        return view('BusinessUser.Team', compact('users'));
+    }
+    
     public function NewTeamMember()
     {
         return view('BusinessUser.NewTeamMember');
     }
+    // public function SaveNewTeamMember(Request $request)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'required',
+    //         'email' => 'required|email|unique:users',
+    //         'password' => 'required',
+    //         'phone' => 'required',
+    //         'role' => 'required',
+    //     ]);
 
-    public function TeamMemberDetail()
-    {
-        return view('BusinessUser.TeamMemberDetail');
-    }
+    //     if ($validator->fails()) {
+    //         if ($request->wantsJson() || $request->is('api/*')) {
+    //             return response()->json([
+    //                 'errors' => $validator->errors()
+    //             ], 400);
+    //         }
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+
+    //     $data = $request->all();
+    //     $data['businessUserId'] = auth()->user()->id;
+    //     $user = User::create($data);
+
+    //     if ($request->wantsJson() || $request->is('api/*')) {
+    //         return response()->json([
+    //             'message' => 'Team member added successfully!',
+    //             'user' => $user
+    //         ], 200);
+    //     }
+    //     return redirect()->route('BusinessUser.Team')->with('success', 'Team member added successfully');
+    // }
+    // public function CreateTeam()
+    // {
+    //     return view('BusinessUser.CreateTeam');
+    // }
+    // public function EditTeam()
+    // {
+    //     return view('BusinessUser.EditTeam');
+    // }
+    // public function UpdateTeam(Request $request, $id)
+    // {
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'required',
+    //         'email' => 'required|email|unique:users,email,' . $id,
+    //         'phone' => 'required',
+    //         'role' => 'required',
+    //     ]);
+
+    //     if ($validator->fails()) {
+    //         if ($request->wantsJson() || $request->is('api/*')) {
+    //             return response()->json([
+    //                 'errors' => $validator->errors()
+    //             ], 400);
+    //         }
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+
+    //     $user = User::findOrFail($id);
+    //     $user->update($request->all());
+
+    //     if ($request->wantsJson() || $request->is('api/*')) {
+    //         return response()->json([
+    //             'message' => 'Team member updated successfully!',
+    //             'user' => $user
+    //         ], 200);
+    //     }
+    //     return redirect()->route('BusinessUser.Team')->with('success', 'Team member updated successfully');
+    // }
+    // public function DeleteTeam($id)
+    // {
+    //     $user = User::findOrFail($id);
+    //     $user->delete();
+
+    //     if (request()->is('api/*')) {
+    //         return response()->json([
+    //             'message' => 'Team member deleted successfully!'
+    //         ], 200);
+    //     }
+    //     return redirect()->route('BusinessUser.Team')->with('success', 'Team member deleted successfully');
+    // }
+    // public function TeamMemberDetail($id)
+    // {
+    //     $user = User::findOrFail($id);
+    //     $industries = Industry::get();
+    //     if (request()->is('api/*')) {
+    //         return response()->json([
+    //             'user' => $user,
+    //             'industries' => $industries
+    //         ], 200);
+    //     }
+    //     return view('BusinessUser.TeamMemberDetail', compact('user', 'industries'));
+    // }
+
+
+
+    // public function TeamMemberDetail()
+    // {
+    //     return view('BusinessUser.TeamMemberDetail');
+    // }
 
     public function Chat()
     {
