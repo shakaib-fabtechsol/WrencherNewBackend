@@ -117,9 +117,7 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('CustomerDetails', 'CustomerDetails')->name('BusinessUser.CustomerDetails');
             Route::get('Inventory', 'Inventory')->name('BusinessUser.Inventory');
             Route::get('AddNewInventory', 'AddNewInventory')->name('BusinessUser.AddNewInventory');
-            Route::get('Team', 'Team')->name('BusinessUser.Team');
-            Route::get('NewTeamMember', 'NewTeamMember')->name('BusinessUser.NewTeamMember');
-            Route::get('TeamMemberDetail', 'TeamMemberDetail')->name('BusinessUser.TeamMemberDetail');
+           
             Route::get('Chat', 'Chat')->name('BusinessUser.Chat');
             Route::get('Automations', 'Automations')->name('BusinessUser.Automations');
             Route::get('AutomationSettings', 'AutomationSettings')->name('BusinessUser.AutomationSettings');
@@ -143,6 +141,11 @@ Route::group(['middleware' => ['BusinessUserMiddleware']], function () {
             Route::get('Expense', 'Expense')->name('BusinessUser.Expense');
             Route::get('DeleteExpense/{id}', 'DeleteExpense')->name('BusinessUser.DeleteExpense');
             Route::get('CreateService', 'CreateService')->name('BusinessUser.CreateService');
+
+            // Route::get('CreateTeam', 'CreateTeam')->name('BusinessUser.CreateTeam');
+            Route::get('Team', 'Team')->name('BusinessUser.Team');
+            Route::get('NewTeamMember', 'NewTeamMember')->name('BusinessUser.NewTeamMember');
+            Route::get('TeamMemberDetail', 'TeamMemberDetail')->name('BusinessUser.TeamMemberDetail');
         });
     });
 });
